@@ -14,13 +14,15 @@ export const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    const cleanEmail = email.trim();
+    const cleanPassword = password.trim();
+    if (!cleanEmail || !cleanPassword) {
       toast.error("Please enter email and password");
       return;
     }
 
     setLoading(true);
-    const res = await login(email, password);
+    const res = await login(cleanEmail, cleanPassword);
     setLoading(false);
 
     if (res?.success) {
@@ -33,6 +35,7 @@ export const LoginPage = () => {
   const handleDemoFill = (roleEmail, rolePass) => {
     setEmail(roleEmail);
     setPassword(rolePass);
+    toast.success(`Demo credentials filled for ${roleEmail.split("@")[0]}! Click Sign In.`);
   };
 
   return (

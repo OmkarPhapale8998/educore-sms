@@ -154,9 +154,11 @@ exports.login = async (req, res, next) => {
     }
 
     const { email, password } = req.body;
+    const cleanEmail = (email || "").trim().toLowerCase();
+    const cleanPassword = (password || "").trim();
 
-    const user = await User.findOne({ email }).select("+password");
-    if (!user || !(await user.matchPassword(password))) {
+    const user = await User.findOne({ email: cleanEmail }).select("+password");
+    if (!user || !(await user.matchPassword(cleanPassword))) {
       return res.status(401).json({ success: false, message: "Invalid email or password" });
     }
 
