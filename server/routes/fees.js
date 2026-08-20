@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const router = express.Router();
 const { protect, authorize } = require("../middleware/auth");
 const Fee = require("../models/Fee");
@@ -9,7 +9,7 @@ const crypto = require("crypto");
 router.use(protect);
 
 // GET all fees
-router.get("/", authorize("admin", "faculty"), async (req, res, next) => {
+router.get("/", authorize("admin", "faculty", "student"), async (req, res, next) => {
   try {
     const { status, semester, department, search, page = 1, limit = 20 } = req.query;
     let studentFilter = {};

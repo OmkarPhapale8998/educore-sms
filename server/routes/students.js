@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const router = express.Router();
 const { protect, authorize } = require("../middleware/auth");
 const upload = require("../middleware/upload");
@@ -10,7 +10,7 @@ const {
 router.use(protect);
 
 router.route("/")
-  .get(authorize("admin", "faculty"), getStudents)
+  .get(authorize("admin", "faculty", "student"), getStudents)
   .post(authorize("admin"), createStudent);
 
 router.route("/:id")

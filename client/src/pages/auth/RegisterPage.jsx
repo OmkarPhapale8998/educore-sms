@@ -37,12 +37,10 @@ export const RegisterPage = () => {
   const [department, setDepartment] = useState("Computer Science");
   const [semester, setSemester] = useState("1");
   const [admissionYear, setAdmissionYear] = useState(new Date().getFullYear().toString());
-  const [rollNo, setRollNo] = useState("");
   const [gender, setGender] = useState("Male");
 
   // Faculty-specific fields
   const [designation, setDesignation] = useState("Assistant Professor");
-  const [employeeId, setEmployeeId] = useState("");
   const [qualification, setQualification] = useState("M.Tech");
   const [experience, setExperience] = useState("2");
 
@@ -83,12 +81,10 @@ export const RegisterPage = () => {
       payload.department = department;
       payload.semester = parseInt(semester);
       payload.admissionYear = parseInt(admissionYear) || new Date().getFullYear();
-      if (rollNo.trim()) payload.rollNo = rollNo.trim().toUpperCase();
       payload.gender = gender;
     } else if (role === "faculty") {
       payload.department = department;
       payload.designation = designation;
-      if (employeeId.trim()) payload.employeeId = employeeId.trim().toUpperCase();
       payload.qualification = qualification;
       payload.experience = parseInt(experience) || 1;
     }
@@ -347,19 +343,6 @@ export const RegisterPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-on-surface-variant mb-1">
-                      Roll Number <span className="text-xs font-normal text-on-surface-variant/70">(Optional)</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Auto-generated if empty"
-                      value={rollNo}
-                      onChange={(e) => setRollNo(e.target.value)}
-                      className="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl text-xs text-on-surface focus:ring-2 focus:ring-primary uppercase"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-on-surface-variant mb-1">
                       Admission Year
                     </label>
                     <input
@@ -368,6 +351,16 @@ export const RegisterPage = () => {
                       onChange={(e) => setAdmissionYear(e.target.value)}
                       className="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl text-xs text-on-surface focus:ring-2 focus:ring-primary"
                     />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-on-surface-variant mb-1">
+                      Roll Number
+                    </label>
+                    <div className="w-full px-3 py-2 bg-surface-container-low/60 border border-outline-variant/30 rounded-xl text-xs text-on-surface-variant flex items-center gap-2">
+                      <span className="material-symbols-outlined text-sm text-primary/60">auto_mode</span>
+                      <span>Auto-assigned by system</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -412,20 +405,7 @@ export const RegisterPage = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-on-surface-variant mb-1">
-                      Employee ID <span className="text-xs font-normal text-on-surface-variant/70">(Optional)</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Auto-generated"
-                      value={employeeId}
-                      onChange={(e) => setEmployeeId(e.target.value)}
-                      className="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl text-xs text-on-surface focus:ring-2 focus:ring-primary uppercase"
-                    />
-                  </div>
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-on-surface-variant mb-1">
                       Qualification
@@ -450,6 +430,16 @@ export const RegisterPage = () => {
                       onChange={(e) => setExperience(e.target.value)}
                       className="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl text-xs text-on-surface focus:ring-2 focus:ring-primary"
                     />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-on-surface-variant mb-1">
+                    Employee ID
+                  </label>
+                  <div className="w-full px-3 py-2 bg-surface-container-low/60 border border-outline-variant/30 rounded-xl text-xs text-on-surface-variant flex items-center gap-2">
+                    <span className="material-symbols-outlined text-sm text-primary/60">auto_mode</span>
+                    <span>Auto-assigned by system</span>
                   </div>
                 </div>
               </div>
