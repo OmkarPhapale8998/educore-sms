@@ -1,0 +1,9312 @@
+[
+  {
+    "courseCode": "CO101",
+    "courseName": "Basic Mathematics",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO102",
+    "courseName": "Basic Science",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO103",
+    "courseName": "Communication Skills (English)",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO104",
+    "courseName": "Engineering Graphics",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO106",
+    "courseName": "Fundamentals of ICT",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO107",
+    "courseName": "Yoga and Meditation",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO201",
+    "courseName": "Applied Mathematics",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO202",
+    "courseName": "Applied Science",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO203",
+    "courseName": "Professional Communication",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO204",
+    "courseName": "Social and Life Skills",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO205",
+    "courseName": "Programming in C",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO206",
+    "courseName": "Web Page Designing",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO207",
+    "courseName": "Linux Basics",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO301",
+    "courseName": "Data Structures Using C",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO302",
+    "courseName": "Database Management System",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO303",
+    "courseName": "Digital Techniques",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO304",
+    "courseName": "Computer Networks",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO305",
+    "courseName": "Object Oriented Programming",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO306",
+    "courseName": "Environmental Studies",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO401",
+    "courseName": "Operating System",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO402",
+    "courseName": "Java Programming",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO403",
+    "courseName": "Web Development",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO404",
+    "courseName": "Data Communication & Networking",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO405",
+    "courseName": "Software Engineering",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO406",
+    "courseName": "Microprocessor & Assembly Language",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO501",
+    "courseName": "Advanced Java Programming",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO502",
+    "courseName": "Mobile Application Development",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO503",
+    "courseName": "Software Testing",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO504",
+    "courseName": "Storage Area Network",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO505",
+    "courseName": "Elective-I",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO506",
+    "courseName": "Project Management",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO601",
+    "courseName": "Cloud Computing",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO602",
+    "courseName": "Machine Learning",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO603",
+    "courseName": "Emerging Trends in Computer Engineering",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO604",
+    "courseName": "Advanced Computer Networks",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO605",
+    "courseName": "Major Project",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CO606",
+    "courseName": "Professional Practices-III",
+    "department": "CO",
+    "departmentName": "Computer Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF101",
+    "courseName": "Basic Mathematics",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF102",
+    "courseName": "Basic Science",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF103",
+    "courseName": "Communication Skills (English)",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF104",
+    "courseName": "Engineering Graphics",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF106",
+    "courseName": "Fundamentals of ICT",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF107",
+    "courseName": "Yoga and Meditation",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF201",
+    "courseName": "Applied Mathematics",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF202",
+    "courseName": "Applied Science",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF203",
+    "courseName": "Professional Communication",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF204",
+    "courseName": "Social and Life Skills",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF205",
+    "courseName": "Programming in C",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF206",
+    "courseName": "Web Page Designing",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF207",
+    "courseName": "Linux Basics",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF301",
+    "courseName": "Data Structures Using C",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF302",
+    "courseName": "Database Management System",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF303",
+    "courseName": "Digital Techniques",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF304",
+    "courseName": "Computer Networks",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF305",
+    "courseName": "Object Oriented Programming",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF306",
+    "courseName": "Environmental Studies",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF401",
+    "courseName": "Operating System",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF402",
+    "courseName": "Client-Side Scripting Language",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF403",
+    "courseName": "Server-Side Scripting Language",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF404",
+    "courseName": "Data Communication & Networking",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF405",
+    "courseName": "Software Engineering",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF406",
+    "courseName": "Java Programming",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF501",
+    "courseName": "Advanced Java Programming",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF502",
+    "courseName": "Mobile Application Development",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF503",
+    "courseName": "Internet of Things",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF504",
+    "courseName": "Wireless Networks",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF505",
+    "courseName": "Elective-I",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF506",
+    "courseName": "Project Management",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF601",
+    "courseName": "Data Mining & Warehousing",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF602",
+    "courseName": "Big Data Analytics",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF603",
+    "courseName": "Emerging Trends in IT",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF604",
+    "courseName": "Network Security",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF605",
+    "courseName": "Major Project",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "IF606",
+    "courseName": "Professional Practices-III",
+    "department": "IF",
+    "departmentName": "Information Technology",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME101",
+    "courseName": "Basic Mathematics",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME102",
+    "courseName": "Basic Science",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME103",
+    "courseName": "Communication Skills (English)",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME104",
+    "courseName": "Engineering Graphics",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME106",
+    "courseName": "Fundamentals of ICT",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME107",
+    "courseName": "Yoga and Meditation",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME201",
+    "courseName": "Applied Mathematics",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME202",
+    "courseName": "Applied Science",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME203",
+    "courseName": "Professional Communication",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME204",
+    "courseName": "Social and Life Skills",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME205",
+    "courseName": "Engineering Mechanics",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME206",
+    "courseName": "Basic Electrical & Electronics Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME207",
+    "courseName": "Elements of Mechanical Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME301",
+    "courseName": "Strength of Materials",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME302",
+    "courseName": "Thermal Engineering-I",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME303",
+    "courseName": "Manufacturing Processes-I",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME304",
+    "courseName": "Fluid Mechanics & Machinery",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME305",
+    "courseName": "Production Drawing",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME306",
+    "courseName": "Environmental Studies",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME401",
+    "courseName": "Theory of Machines",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME402",
+    "courseName": "Thermal Engineering-II",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME403",
+    "courseName": "Manufacturing Processes-II",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME404",
+    "courseName": "Metrology & Quality Control",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME405",
+    "courseName": "Machine Design",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME406",
+    "courseName": "Industrial Engineering & Management",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME501",
+    "courseName": "CAD/CAM",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME502",
+    "courseName": "Refrigeration & Air Conditioning",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME503",
+    "courseName": "Power Plant Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME504",
+    "courseName": "Automobile Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME505",
+    "courseName": "Elective-I",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME506",
+    "courseName": "Project Management",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME601",
+    "courseName": "Mechatronics",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME602",
+    "courseName": "Maintenance Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME603",
+    "courseName": "CNC Programming",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME604",
+    "courseName": "Emerging Trends in Mechanical Engineering",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME605",
+    "courseName": "Major Project",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "ME606",
+    "courseName": "Professional Practices-III",
+    "department": "ME",
+    "departmentName": "Mechanical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE101",
+    "courseName": "Basic Mathematics",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE102",
+    "courseName": "Basic Science",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE103",
+    "courseName": "Communication Skills (English)",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE104",
+    "courseName": "Engineering Graphics",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE106",
+    "courseName": "Fundamentals of ICT",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE107",
+    "courseName": "Yoga and Meditation",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE201",
+    "courseName": "Applied Mathematics",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE202",
+    "courseName": "Applied Science",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE203",
+    "courseName": "Professional Communication",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE204",
+    "courseName": "Social and Life Skills",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE205",
+    "courseName": "Engineering Mechanics",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE206",
+    "courseName": "Basic Electrical & Electronics Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE207",
+    "courseName": "Building Construction Materials",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE301",
+    "courseName": "Building Construction",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE302",
+    "courseName": "Surveying-I",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE303",
+    "courseName": "Strength of Materials",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE304",
+    "courseName": "Building Materials",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE305",
+    "courseName": "Concrete Technology",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE306",
+    "courseName": "Environmental Studies",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE401",
+    "courseName": "Surveying-II",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE402",
+    "courseName": "Theory of Structures",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE403",
+    "courseName": "Geotechnical Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE404",
+    "courseName": "Transportation Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE405",
+    "courseName": "Water Supply Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE406",
+    "courseName": "Estimating & Costing",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE501",
+    "courseName": "Design of Steel Structures",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE502",
+    "courseName": "Design of RCC Structures",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE503",
+    "courseName": "Irrigation Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE504",
+    "courseName": "Environmental Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE505",
+    "courseName": "Elective-I",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE506",
+    "courseName": "Project Management",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE601",
+    "courseName": "Advanced Surveying",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE602",
+    "courseName": "Construction Management",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE603",
+    "courseName": "Estimation & Valuation",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE604",
+    "courseName": "Emerging Trends in Civil Engineering",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE605",
+    "courseName": "Major Project",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "CE606",
+    "courseName": "Professional Practices-III",
+    "department": "CE",
+    "departmentName": "Civil Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE101",
+    "courseName": "Basic Mathematics",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE102",
+    "courseName": "Basic Science",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE103",
+    "courseName": "Communication Skills (English)",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE104",
+    "courseName": "Engineering Graphics",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE106",
+    "courseName": "Fundamentals of ICT",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE107",
+    "courseName": "Yoga and Meditation",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE201",
+    "courseName": "Applied Mathematics",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE202",
+    "courseName": "Applied Science",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE203",
+    "courseName": "Professional Communication",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE204",
+    "courseName": "Social and Life Skills",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE205",
+    "courseName": "Engineering Mechanics",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE206",
+    "courseName": "Elements of Electrical Engineering",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE207",
+    "courseName": "Basic Electronics Engineering",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE301",
+    "courseName": "Electrical Circuits & Networks",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE302",
+    "courseName": "Electrical Power Generation",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE303",
+    "courseName": "Electrical Machines-I",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE304",
+    "courseName": "Electronic Devices & Circuits",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE305",
+    "courseName": "Electrical Wiring & Estimating",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE306",
+    "courseName": "Environmental Studies",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE401",
+    "courseName": "Electrical Machines-II",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE402",
+    "courseName": "Power Electronics",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE403",
+    "courseName": "Transmission & Distribution",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE404",
+    "courseName": "Electrical Measurement & Instrumentation",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE405",
+    "courseName": "Control System",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE406",
+    "courseName": "Industrial Electrical Systems",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE501",
+    "courseName": "Switchgear & Protection",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE502",
+    "courseName": "Renewable Energy Sources",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE503",
+    "courseName": "PLC & Automation",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE504",
+    "courseName": "Electric Drives",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE505",
+    "courseName": "Elective-I",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE506",
+    "courseName": "Project Management",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE601",
+    "courseName": "Utilization of Electrical Energy",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE602",
+    "courseName": "Electrical Design & Drawing",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE603",
+    "courseName": "Emerging Trends in Electrical Engineering",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE604",
+    "courseName": "Power Plant Engineering",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE605",
+    "courseName": "Major Project",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EE606",
+    "courseName": "Professional Practices-III",
+    "department": "EE",
+    "departmentName": "Electrical Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ101",
+    "courseName": "Basic Mathematics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ102",
+    "courseName": "Basic Science",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ103",
+    "courseName": "Communication Skills (English)",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ104",
+    "courseName": "Engineering Graphics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ106",
+    "courseName": "Fundamentals of ICT",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ107",
+    "courseName": "Yoga and Meditation",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ201",
+    "courseName": "Applied Mathematics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ202",
+    "courseName": "Applied Science",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ203",
+    "courseName": "Professional Communication",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ204",
+    "courseName": "Social and Life Skills",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ205",
+    "courseName": "Engineering Mechanics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ206",
+    "courseName": "Basic Electrical Engineering",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ207",
+    "courseName": "Electronic Devices & Circuits Basics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ301",
+    "courseName": "Electronic Circuits",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ302",
+    "courseName": "Digital Techniques",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ303",
+    "courseName": "Electrical Circuits & Networks",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ304",
+    "courseName": "Principles of Communication Engineering",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ305",
+    "courseName": "Consumer Electronics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ306",
+    "courseName": "Environmental Studies",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ401",
+    "courseName": "Microcontroller & Applications",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ402",
+    "courseName": "Linear Integrated Circuits",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ403",
+    "courseName": "Digital Communication",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ404",
+    "courseName": "Data Communication & Computer Networks",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ405",
+    "courseName": "Industrial Electronics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ406",
+    "courseName": "Power Electronics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ501",
+    "courseName": "Mobile Communication",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ502",
+    "courseName": "Embedded Systems",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ503",
+    "courseName": "Optical Fiber Communication",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ504",
+    "courseName": "VLSI Design",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ505",
+    "courseName": "Elective-I",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ506",
+    "courseName": "Project Management",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ601",
+    "courseName": "Internet of Things & Applications",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ602",
+    "courseName": "Satellite Communication",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ603",
+    "courseName": "Emerging Trends in Electronics",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ604",
+    "courseName": "Robotics & Automation",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ605",
+    "courseName": "Major Project",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "EJ606",
+    "courseName": "Professional Practices-III",
+    "department": "EJ",
+    "departmentName": "Electronics & Telecommunication Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE101",
+    "courseName": "Basic Mathematics",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE102",
+    "courseName": "Basic Science",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE103",
+    "courseName": "Communication Skills (English)",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE104",
+    "courseName": "Engineering Graphics",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE105",
+    "courseName": "Engineering Workshop Practice",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE106",
+    "courseName": "Fundamentals of ICT",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE107",
+    "courseName": "Yoga and Meditation",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 1,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE201",
+    "courseName": "Applied Mathematics",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE202",
+    "courseName": "Applied Science",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE203",
+    "courseName": "Professional Communication",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE204",
+    "courseName": "Social and Life Skills",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE205",
+    "courseName": "Engineering Mechanics",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE206",
+    "courseName": "Basic Electrical & Electronics Engineering",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE207",
+    "courseName": "Elements of Automobile Engineering",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 2,
+    "credits": 3,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE301",
+    "courseName": "Automotive Chassis & Body Engineering",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE302",
+    "courseName": "Strength of Materials",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE303",
+    "courseName": "Manufacturing Processes-I",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE304",
+    "courseName": "Automotive Engines",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE305",
+    "courseName": "Fluid Mechanics & Machinery",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE306",
+    "courseName": "Environmental Studies",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 3,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE401",
+    "courseName": "Automotive Transmission Systems",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE402",
+    "courseName": "Automotive Electrical & Electronics",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE403",
+    "courseName": "Manufacturing Processes-II",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE404",
+    "courseName": "Vehicle Maintenance & Repair",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE405",
+    "courseName": "Automotive Chassis Design",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE406",
+    "courseName": "Industrial Management",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 4,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE501",
+    "courseName": "Automotive Air Conditioning",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE502",
+    "courseName": "Vehicle Testing & Emission Control",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE503",
+    "courseName": "Alternate Fuels & Energy Sources",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE504",
+    "courseName": "Automotive Design",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE505",
+    "courseName": "Elective-I",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE506",
+    "courseName": "Project Management",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 5,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE601",
+    "courseName": "Electric & Hybrid Vehicles",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE602",
+    "courseName": "Advanced Automotive Systems",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE603",
+    "courseName": "Emerging Trends in Automobile Engineering",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE604",
+    "courseName": "Vehicle Body Engineering",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE605",
+    "courseName": "Major Project",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "courseCode": "AE606",
+    "courseName": "Professional Practices-III",
+    "department": "AE",
+    "departmentName": "Automobile Engineering",
+    "semester": 6,
+    "credits": 4,
+    "syllabusUnits": [
+      {
+        "unitNo": 1,
+        "title": "Unit I",
+        "completed": false
+      },
+      {
+        "unitNo": 2,
+        "title": "Unit II",
+        "completed": false
+      },
+      {
+        "unitNo": 3,
+        "title": "Unit III",
+        "completed": false
+      },
+      {
+        "unitNo": 4,
+        "title": "Unit IV",
+        "completed": false
+      },
+      {
+        "unitNo": 5,
+        "title": "Unit V",
+        "completed": false
+      }
+    ]
+  }
+]

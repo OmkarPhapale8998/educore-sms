@@ -13,7 +13,8 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ["Computer Science", "Mechanical Engineering", "Civil Engineering",
-           "Electrical Engineering", "Electronics", "Information Technology"]
+      "Electrical Engineering", "Electronics", "Information Technology",
+      "Automobile Engineering"]
   },
   semester: { type: Number, required: true, min: 1, max: 8 },
   admissionYear: { type: Number, required: true },

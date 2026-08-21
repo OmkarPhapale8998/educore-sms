@@ -7,7 +7,8 @@ const facultySchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ["Computer Science", "Mechanical Engineering", "Civil Engineering",
-           "Electrical Engineering", "Electronics", "Information Technology"]
+      "Electrical Engineering", "Electronics", "Information Technology",
+      "Automobile Engineering"]
   },
   designation: { type: String, default: "Assistant Professor" },
   qualification: [String],
