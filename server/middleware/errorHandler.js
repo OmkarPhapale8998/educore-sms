@@ -1,39 +1,50 @@
-﻿const errorHandler = (err, req, res, next) => {
-  let error = { ...err };
-  error.message = err.message;
+﻿// ============================================================
+// middleware/errorHandler.js
+// One central place that catches every error thrown by routes
+// and turns database/JWT error codes into friendly messages.
+// Registered last in server.js (app.use(errorHandler)).
+// ============================================================
+const errorHandler = (err, req, res, next) => {
+  // Start with the error's own status/message, else default to 500 Server Error
+  let statusCode = err.statusCode || 500;
+  let message = err.message || "Server Error";
 
-  console.error("Error:", err.message);
+  // PostgreSQL error codes -> readable messages for the client
 
-  // Mongoose bad ObjectId
-  if (err.name === "CastError") {
-    error.message = `Resource not found with id: ${err.value}`;
-    return res.status(404).json({ success: false, message: error.message });
+  if (err.code === "23505") { // unique constraint violated (e.g. duplicate email)
+    statusCode = 400;
+    message = "Duplicate field value entered";
   }
 
-  // Mongoose duplicate key
-  if (err.code === 11000) {
-    const field = Object.keys(err.keyValue)[0];
-    error.message = `${field} already exists`;
-    return res.status(400).json({ success: false, message: error.message });
+  if (err.code === "23503") { // foreign key violated (related row missing)
+    statusCode = 400;
+    message = "Referenced record does not exist";
   }
 
-  // Mongoose validation error
-  if (err.name === "ValidationError") {
-    const messages = Object.values(err.errors).map(e => e.message);
-    return res.status(400).json({ success: false, message: messages.join(", ") });
+  if (err.code === "23514" || err.code === "22P02") { // bad value / bad uuid format
+    statusCode = 400;
+    message = "Invalid data format";
   }
 
-  // JWT errors
-  if (err.name === "JsonWebTokenError") {
-    return res.status(401).json({ success: false, message: "Invalid token" });
-  }
-  if (err.name === "TokenExpiredError") {
-    return res.status(401).json({ success: false, message: "Token expired" });
+  if (err.code === "28P01" || err.code === "42501") { // DB login or permission failure
+    statusCode = 500;
+    message = "Database authentication/permission error";
   }
 
-  res.status(err.statusCode || 500).json({
+  if (err.name === "JsonWebTokenError") { // malformed JWT
+    statusCode = 401;
+    message = "Invalid token";
+  }
+
+  if (err.name === "TokenExpiredError") { // JWT past its expiry
+    statusCode = 401;
+    message = "Token expired";
+  }
+
+  res.status(statusCode).json({
     success: false,
-    message: error.message || "Internal Server Error"
+    message,
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack }), // stack only in dev mode
   });
 };
 
