@@ -7,7 +7,7 @@ A full-stack Student Management System web application tailored for Diploma Engi
 ## 🛠️ Architecture & Tech Stack
 
 - **Frontend**: React 18, Vite, Tailwind CSS, React Router v6, Recharts, Lucide Icons, Material Symbols, Axios, React Hot Toast
-- **Backend**: Node.js, Express.js, MongoDB (Mongoose), JWT authentication (httpOnly cookie + Bearer), Multer, PDFKit, ExcelJS, Nodemailer
+- **Backend**: Node.js, Express.js, PostgreSQL (Supabase) with `pg`, JWT authentication (httpOnly cookie + Bearer), Multer, PDFKit, ExcelJS, Nodemailer
 
 ---
 
@@ -18,9 +18,9 @@ A full-stack Student Management System web application tailored for Diploma Engi
 cd server
 npm install
 ```
-Configure your MongoDB connection in `server/.env` (default is `mongodb://localhost:27017/educore` or your MongoDB Atlas URI).
+Configure your Supabase Postgres connection in `server/.env` (see `.env.example`): set `SUPABASE_DB_URL` from your Supabase Dashboard (Project Settings > Database > Connection string).
 
-To seed demo accounts, courses, faculty, students, exams, fees, and notices:
+Create the schema and seed demo accounts, courses, faculty, students, exams, fees, and notices:
 ```bash
 npm run seed
 ```
@@ -58,13 +58,12 @@ npm run dev
 1. **Authentication & RBAC**: JWT tokens, bcrypt password hashing, reset password with email link, protected routes.
 2. **Students Directory**: Department/Semester/Status filters, search with debounce, pagination, Excel export.
 3. **Multi-step Student Enrollment**: 3-step wizard with live validation.
-4. **Student Profile**: Overview, subject-wise attendance breakdown, fee ledger with PDF receipts, document uploads.
+4. **Student Profile**: Overview, subject-wise attendance breakdown, document uploads.
 5. **Faculty Directory**: Faculty list, qualifications, designations, and department assignment.
 6. **Curriculum & Courses**: Subject credits, syllabus unit tracking, assigned faculty.
 7. **Attendance Module**: Class roster loading, quick toggles (Present/Absent/Leave), real-time attendance percentage counter, auto-notifications for attendance < 75%.
-8. **Fee Management**: Summary KPI cards, record partial/full payments with receipt numbers, direct PDF receipt generation.
-9. **Exams & Marksheets**: Schedule exams, bulk enter theory/internal/practical marks, auto grade calculation, download PDF marksheets.
-10. **Notice Board**: Category filtering, pinned notices, file attachments.
-11. **Reports & Analytics**: Recharts charts for enrollment growth, department breakdown, weekly attendance trends, and fee collection velocity.
-12. **Settings**: Profile photo upload, password change, institutional security.
-13. **Faculty & Student Portals**: Dedicated workspaces tailored to each user role.
+8. **Exams & Marksheets**: Schedule exams, bulk enter theory/internal/practical marks, auto grade calculation, download PDF marksheets.
+9. **Notice Board**: Category filtering, pinned notices, file attachments.
+10. **Reports & Analytics**: Recharts charts for enrollment growth and department breakdown.
+11. **Settings**: Profile photo upload, password change, institutional security.
+12. **Faculty & Student Portals**: Dedicated workspaces tailored to each user role.
