@@ -1,8 +1,16 @@
+// ============================================================
+// RegisterPage.jsx
+// Account creation screen. One form serves three roles picked
+// with tabs (student / faculty / admin); extra role-specific
+// fields (department, semester, designation...) appear based
+// on the selected role.
+// ============================================================
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 
+// Department options for the dropdowns.
 const DEPARTMENTS = [
   "Computer Science",
   "Mechanical Engineering",
@@ -12,6 +20,7 @@ const DEPARTMENTS = [
   "Information Technology"
 ];
 
+// Designation options for faculty accounts.
 const FACULTY_DESIGNATIONS = [
   "Assistant Professor",
   "Associate Professor",
@@ -21,16 +30,20 @@ const FACULTY_DESIGNATIONS = [
 ];
 
 export const RegisterPage = () => {
+  // register action from AuthContext; navigate moves between pages.
   const { register } = useAuth();
   const navigate = useNavigate();
 
+  // Selected account type: "student" | "faculty" | "admin".
   const [role, setRole] = useState("student"); // "student" | "faculty" | "admin"
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  // Show passwords as plain text when true.
   const [showPassword, setShowPassword] = useState(false);
+  // True while the register request is running.
   const [loading, setLoading] = useState(false);
 
   // Student-specific fields
@@ -47,9 +60,11 @@ export const RegisterPage = () => {
   // Admin secret / access code (optional institutional safety check)
   const [adminCode, setAdminCode] = useState("");
 
+  // Validates the form, builds a role-specific payload, registers and redirects.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Step 1: validate required fields before touching the API.
     if (!name.trim()) {
       toast.error("Please enter your full name");
       return;
@@ -69,6 +84,7 @@ export const RegisterPage = () => {
 
     setLoading(true);
 
+    // Step 2: build the base payload shared by every role.
     const payload = {
       name: name.trim(),
       email: email.trim().toLowerCase(),
@@ -77,6 +93,7 @@ export const RegisterPage = () => {
       phone: phone.trim() || undefined,
     };
 
+    // Step 3: attach the extra fields required by the selected role.
     if (role === "student") {
       payload.department = department;
       payload.semester = parseInt(semester);
@@ -89,9 +106,11 @@ export const RegisterPage = () => {
       payload.experience = parseInt(experience) || 1;
     }
 
+    // Step 4: send it to the API (AuthContext stores the session on success).
     const res = await register(payload);
     setLoading(false);
 
+    // Step 5: redirect the new user to their role's home page.
     if (res?.success) {
       if (res.user.role === "student") navigate("/student/portal");
       else if (res.user.role === "faculty") navigate("/faculty/dashboard");
@@ -183,7 +202,7 @@ export const RegisterPage = () => {
               <span className="material-symbols-outlined text-lg text-secondary-fixed shrink-0 mt-0.5">info</span>
               <div>
                 {role === "student" && (
-                  <p>Register as a student to view attendance, exam schedules, results & download fee receipts.</p>
+                  <p>Register as a student to view attendance, exam schedules & results.</p>
                 )}
                 {role === "faculty" && (
                   <p>Register as a faculty member to manage assigned courses, record student attendance & grade exams.</p>

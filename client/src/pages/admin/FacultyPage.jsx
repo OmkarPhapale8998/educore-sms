@@ -1,8 +1,15 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// FacultyPage.jsx
+// Teaching-staff directory shown as cards: search +
+// department filter, an "Add Faculty Member" modal form, and
+// delete with a confirmation popup.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { facultyAPI, courseAPI } from "../../api";
 import { Badge, TableSkeleton, Modal } from "../../components/ui";
 import toast from "react-hot-toast";
 
+// Options for the department filter dropdown.
 const DEPARTMENTS = [
   "All Departments",
   "Computer Science",
@@ -14,14 +21,21 @@ const DEPARTMENTS = [
 ];
 
 export const FacultyPage = () => {
+  // Faculty members currently displayed as cards.
   const [facultyList, setFacultyList] = useState([]);
+  // Department filter value ("" = all).
   const [department, setDepartment] = useState("");
+  // Search box text (applied when Enter is pressed).
   const [search, setSearch] = useState("");
+  // True while the list is being fetched.
   const [loading, setLoading] = useState(true);
 
   // Modal states
+  // Opens/closes the add-faculty dialog.
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  // True while the create request runs.
   const [submitting, setSubmitting] = useState(false);
+  // Fields of the add-faculty form.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,10 +47,12 @@ export const FacultyPage = () => {
     qualification: "B.Tech, M.Tech"
   });
 
+  // Re-fetches faculty whenever the department filter changes.
   useEffect(() => {
     fetchFaculty();
   }, [department]);
 
+  // Fetches the faculty list using current department/search filters.
   const fetchFaculty = async () => {
     setLoading(true);
     try {
@@ -52,6 +68,7 @@ export const FacultyPage = () => {
     }
   };
 
+  // Registers new faculty; qualification text is split into an array for the API.
   const handleCreateFaculty = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -78,6 +95,7 @@ export const FacultyPage = () => {
     }
   };
 
+  // Asks for confirmation, deletes the faculty member, refreshes the list.
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to remove this faculty member?")) return;
     try {
@@ -136,7 +154,7 @@ export const FacultyPage = () => {
         </select>
       </div>
 
-      {/* Faculty Grid */}
+      {/* Faculty Grid - loading / empty / cards */}
       {loading ? (
         <TableSkeleton rows={4} cols={3} />
       ) : facultyList.length === 0 ? (
@@ -206,6 +224,7 @@ export const FacultyPage = () => {
         title="Register Faculty Member"
         maxWidth="max-w-2xl"
       >
+        {/* Registration form (identity, contact, academic details) */}
         <form onSubmit={handleCreateFaculty} className="space-y-4 text-xs">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

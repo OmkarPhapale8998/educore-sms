@@ -1,8 +1,15 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// CoursesPage.jsx
+// Curriculum manager: course cards filtered by department and
+// semester, plus an "Add New Course" modal that can also
+// assign a faculty member to the course.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { courseAPI, facultyAPI } from "../../api";
 import { Badge, TableSkeleton, Modal } from "../../components/ui";
 import toast from "react-hot-toast";
 
+// Options for the department filter dropdown.
 const DEPARTMENTS = [
   "All Departments",
   "Computer Science",
@@ -14,15 +21,23 @@ const DEPARTMENTS = [
 ];
 
 export const CoursesPage = () => {
+  // Courses currently shown as cards.
   const [courses, setCourses] = useState([]);
+  // Loaded to fill the "Assign Faculty" dropdown in the modal.
   const [facultyList, setFacultyList] = useState([]);
+  // Department filter value ("" = all).
   const [department, setDepartment] = useState("");
+  // Semester filter value ("" = all).
   const [semester, setSemester] = useState("");
+  // True while courses are being fetched.
   const [loading, setLoading] = useState(true);
 
   // Add course modal
+  // Opens/closes the add-course dialog.
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  // True while the create request runs.
   const [submitting, setSubmitting] = useState(false);
+  // Fields of the add-course form.
   const [formData, setFormData] = useState({
     name: "",
     code: "",
@@ -33,11 +48,13 @@ export const CoursesPage = () => {
     assignedFaculty: ""
   });
 
+  // Reloads courses whenever a filter changes; faculty list loaded too.
   useEffect(() => {
     fetchCourses();
     fetchFaculty();
   }, [department, semester]);
 
+  // Fetches courses using the current department/semester filters.
   const fetchCourses = async () => {
     setLoading(true);
     try {
@@ -53,6 +70,7 @@ export const CoursesPage = () => {
     }
   };
 
+  // Loads every faculty member for the assignment dropdown.
   const fetchFaculty = async () => {
     try {
       const res = await facultyAPI.getAll();
@@ -60,6 +78,7 @@ export const CoursesPage = () => {
     } catch (err) {}
   };
 
+  // Creates the new course from the modal form and refreshes the grid.
   const handleCreateCourse = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -81,6 +100,7 @@ export const CoursesPage = () => {
     }
   };
 
+  // Asks for confirmation, deletes the course, refreshes the grid.
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to remove this course?")) return;
     try {
@@ -136,7 +156,7 @@ export const CoursesPage = () => {
         </select>
       </div>
 
-      {/* Course Cards Grid */}
+      {/* Course Cards Grid - loading / empty / cards */}
       {loading ? (
         <TableSkeleton rows={4} cols={3} />
       ) : courses.length === 0 ? (
@@ -146,6 +166,7 @@ export const CoursesPage = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* One course card */}
           {courses.map((course) => (
             <div
               key={course._id}

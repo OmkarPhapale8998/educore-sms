@@ -1,40 +1,52 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// StudentProfilePage.jsx
+// One student's full profile with three tabs: Overview &
+// personal details, subject-wise Attendance summary bars, and
+// Documents (list + upload new files).
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { studentAPI, attendanceAPI, feeAPI } from "../../api";
+import { studentAPI, attendanceAPI } from "../../api";
+import { API_ORIGIN } from "../../api/client";
 import { Badge, TableSkeleton } from "../../components/ui";
 import toast from "react-hot-toast";
 
 export const StudentProfilePage = () => {
+  // Student id taken from the URL (/students/:id).
   const { id } = useParams();
+  // The student record fetched from the API.
   const [student, setStudent] = useState(null);
+  // Subject-wise attendance percentages for this student.
   const [attendance, setAttendance] = useState([]);
-  const [fees, setFees] = useState([]);
+  // Which tab is open: "overview" | "attendance" | "documents".
   const [activeTab, setActiveTab] = useState("overview");
+  // True while the profile data is loading.
   const [loading, setLoading] = useState(true);
 
   // Document upload state
+  // Optional friendly title for the uploaded file.
   const [docName, setDocName] = useState("");
+  // The file picked in the file input.
   const [selectedFile, setSelectedFile] = useState(null);
+  // True while the upload request runs.
   const [uploadingDoc, setUploadingDoc] = useState(false);
 
+  // Runs when the page loads and again if the URL id changes.
   useEffect(() => {
     fetchProfileData();
   }, [id]);
 
+  // Loads the student record and attendance percentages together.
   const fetchProfileData = async () => {
     setLoading(true);
     try {
-      const [stdRes, attRes, feeRes] = await Promise.all([
+      const [stdRes, attRes] = await Promise.all([
         studentAPI.getById(id),
-        attendanceAPI.getPercentage(id),
-        feeAPI.getAll({ search: "" }) // will filter client side or API
+        attendanceAPI.getPercentage(id)
       ]);
 
       if (stdRes.data.success) setStudent(stdRes.data.data);
       if (attRes.data.success) setAttendance(attRes.data.data);
-      if (feeRes.data.success) {
-        setFees(feeRes.data.data.filter((f) => f.student?._id === id));
-      }
     } catch (err) {
       toast.error("Failed to load student profile");
     } finally {
@@ -42,19 +54,23 @@ export const StudentProfilePage = () => {
     }
   };
 
+  // Uploads the chosen file (multipart) and refreshes the documents tab.
   const handleDocUpload = async (e) => {
     e.preventDefault();
+    // Step 1: make sure a file was selected.
     if (!selectedFile) {
       toast.error("Please select a file to upload");
       return;
     }
 
+    // Step 2: pack the file + title into FormData for a multipart upload.
     const formData = new FormData();
     formData.append("document", selectedFile);
     formData.append("name", docName || selectedFile.name);
 
     setUploadingDoc(true);
     try {
+      // Step 3: send to the API, clear the form, reload the profile.
       const res = await studentAPI.uploadDoc(id, formData);
       if (res.data.success) {
         toast.success("Document uploaded successfully");
@@ -69,6 +85,7 @@ export const StudentProfilePage = () => {
     }
   };
 
+  // While data loads show a skeleton placeholder.
   if (loading) {
     return (
       <div className="p-8">
@@ -77,6 +94,7 @@ export const StudentProfilePage = () => {
     );
   }
 
+  // Unknown id -> friendly "not found" message.
   if (!student) {
     return (
       <div className="p-12 text-center text-on-surface-variant">
@@ -114,6 +132,7 @@ export const StudentProfilePage = () => {
           </div>
         </div>
 
+        {/* Contact action buttons (email / call) */}
         <div className="flex items-center gap-3">
           <a
             href={`mailto:${student.userId?.email}`}
@@ -137,7 +156,6 @@ export const StudentProfilePage = () => {
         {[
           { id: "overview", label: "Overview & Personal Details", icon: "person" },
           { id: "attendance", label: "Attendance Summary", icon: "event_available" },
-          { id: "fees", label: "Fee Ledger", icon: "payments" },
           { id: "documents", label: "Documents & Files", icon: "folder" },
         ].map((tab) => (
           <button
@@ -272,81 +290,6 @@ export const StudentProfilePage = () => {
           </div>
         )}
 
-        {/* Tab 3: Fee Ledger */}
-        {activeTab === "fees" && (
-          <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-6">
-            <h3 className="font-bold text-sm text-on-surface">Semester Fee Records</h3>
-
-            {fees.length === 0 ? (
-              <p className="text-xs text-on-surface-variant py-8 text-center">
-                No fee records assigned to this student.
-              </p>
-            ) : (
-              <div className="space-y-6">
-                {fees.map((fee) => (
-                  <div key={fee._id} className="p-5 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-bold text-sm text-on-surface">
-                          Semester {fee.semester} • Academic Year {fee.academicYear}
-                        </h4>
-                        <p className="text-xs text-on-surface-variant">
-                          Due Date: {new Date(fee.dueDate).toLocaleDateString()}
-                        </p>
-                      </div>
-                      <Badge status={fee.status} />
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 p-4 bg-surface-container-lowest rounded-xl text-xs">
-                      <div>
-                        <p className="text-on-surface-variant font-semibold">Total Fee</p>
-                        <p className="text-base font-bold text-on-surface mt-0.5">₹{fee.totalAmount.toLocaleString()}</p>
-                      </div>
-                      <div>
-                        <p className="text-on-surface-variant font-semibold">Paid Amount</p>
-                        <p className="text-base font-bold text-emerald-600 mt-0.5">₹{fee.paidAmount.toLocaleString()}</p>
-                      </div>
-                      <div>
-                        <p className="text-on-surface-variant font-semibold">Remaining Due</p>
-                        <p className="text-base font-bold text-rose-600 mt-0.5">
-                          ₹{(fee.totalAmount - fee.paidAmount).toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Payment History */}
-                    {fee.paymentHistory && fee.paymentHistory.length > 0 && (
-                      <div className="space-y-2 pt-2 border-t border-outline-variant/20">
-                        <p className="text-xs font-bold text-on-surface">Payment Transactions:</p>
-                        {fee.paymentHistory.map((p, pIdx) => (
-                          <div key={pIdx} className="flex items-center justify-between text-xs p-2.5 bg-surface-container-lowest rounded-lg">
-                            <div>
-                              <span className="font-bold text-on-surface">₹{p.amount.toLocaleString()}</span>
-                              <span className="text-on-surface-variant mx-2">•</span>
-                              <span className="text-on-surface-variant capitalize">{p.method}</span>
-                              <span className="text-on-surface-variant mx-2">•</span>
-                              <span className="font-mono text-[11px] text-primary">{p.receiptNo}</span>
-                            </div>
-                            <a
-                              href={feeAPI.getReceiptUrl(fee._id, p.receiptNo)}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="px-2.5 py-1 bg-primary/10 text-primary font-bold rounded text-[11px] hover:bg-primary/20 flex items-center gap-1"
-                            >
-                              <span className="material-symbols-outlined text-sm">download</span>
-                              Receipt PDF
-                            </a>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
         {/* Tab 4: Documents */}
         {activeTab === "documents" && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -372,7 +315,7 @@ export const StudentProfilePage = () => {
                         </div>
                       </div>
                       <a
-                        href={`http://localhost:5000/${doc.path}`}
+                        href={`${API_ORIGIN}/${doc.path}`}
                         target="_blank"
                         rel="noreferrer"
                         className="px-3 py-1 bg-primary text-on-primary font-bold rounded-lg text-xs hover:bg-primary-container"

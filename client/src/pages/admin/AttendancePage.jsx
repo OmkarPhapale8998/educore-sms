@@ -1,8 +1,16 @@
+// ============================================================
+// AttendancePage.jsx
+// Attendance manager with two tabs: (1) "Mark Daily
+// Attendance" - choose date/class/course, load the student
+// roster and set Present/Absent/Leave for each; (2)
+// "Date-wise History" - review any saved day's records.
+// ============================================================
 import React, { useState, useEffect } from "react";
 import { studentAPI, courseAPI, attendanceAPI } from "../../api";
 import { TableSkeleton, StatsCard } from "../../components/ui";
 import toast from "react-hot-toast";
 
+// Options for the department dropdown.
 const DEPARTMENTS = [
   "Computer Science",
   "Mechanical Engineering",
@@ -13,31 +21,47 @@ const DEPARTMENTS = [
 ];
 
 export const AttendancePage = () => {
+  // Which tab is open: "mark" | "history".
   const [activeTab, setActiveTab] = useState("mark"); // "mark" | "history"
 
   // Mark Daily Attendance State
+  // Class selection filters.
   const [department, setDepartment] = useState("Computer Science");
   const [semester, setSemester] = useState("3");
+  // Courses available for this class (dropdown options).
   const [courses, setCourses] = useState([]);
+  // The course whose attendance is being marked.
   const [selectedCourse, setSelectedCourse] = useState("");
+  // Session date being marked (defaults to today).
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
+  // Roster loaded after clicking "Load Student Roster".
   const [students, setStudents] = useState([]);
+  // Status per student: { studentId: "present" | "absent" | "leave" }.
   const [attendanceMap, setAttendanceMap] = useState({}); // { studentId: "present" | "absent" | "leave" }
+  // True while the roster is loading.
   const [loading, setLoading] = useState(false);
+  // True while saving to the API.
   const [saving, setSaving] = useState(false);
+  // True when records already existed for this course+date (shows "update").
   const [isExistingRecord, setIsExistingRecord] = useState(false);
 
   // History Tab State
+  // Date whose history is shown.
   const [historyDate, setHistoryDate] = useState(new Date().toISOString().split("T")[0]);
+  // All attendance rows fetched for that date.
   const [historyRecords, setHistoryRecords] = useState([]);
+  // True while history is loading.
   const [historyLoading, setHistoryLoading] = useState(false);
+  // Text typed in the history search box.
   const [historySearch, setHistorySearch] = useState("");
 
+  // Whenever the class changes, refresh the course dropdown.
   useEffect(() => {
     fetchCoursesForClass();
   }, [department, semester]);
 
+  // Loads courses for the chosen class and preselects the first one.
   const fetchCoursesForClass = async () => {
     try {
       const res = await courseAPI.getAll({ department, semester });
@@ -49,6 +73,7 @@ export const AttendancePage = () => {
     } catch (err) {}
   };
 
+  // Loads the roster + any saved records for the chosen course/date.
   const handleLoadStudents = async () => {
     if (!selectedCourse) {
       toast.error("Please select a course");
@@ -98,10 +123,12 @@ export const AttendancePage = () => {
     }
   };
 
+  // Updates ONE student's status in the local map (button click).
   const handleStatusChange = (studentId, status) => {
     setAttendanceMap((prev) => ({ ...prev, [studentId]: status }));
   };
 
+  // Bulk action: set every loaded student to the same status.
   const handleSetAll = (status) => {
     const nextMap = {};
     students.forEach((s) => {
@@ -110,10 +137,12 @@ export const AttendancePage = () => {
     setAttendanceMap(nextMap);
   };
 
+  // Saves (or updates) the whole day's attendance for the class.
   const handleSubmit = async () => {
     if (students.length === 0) return;
     setSaving(true);
     try {
+      // Turn the per-student status map into the API's records array.
       const records = students.map((s) => ({
         studentId: s._id,
         status: attendanceMap[s._id] || "present"
@@ -153,12 +182,14 @@ export const AttendancePage = () => {
     }
   };
 
+  // Loads history whenever the History tab opens or the date changes.
   useEffect(() => {
     if (activeTab === "history") {
       fetchHistory();
     }
   }, [activeTab, historyDate]);
 
+  // Client-side search over the fetched rows (name, roll no, course).
   const filteredHistory = historyRecords.filter((rec) => {
     if (!historySearch) return true;
     const query = historySearch.toLowerCase();
@@ -169,6 +200,7 @@ export const AttendancePage = () => {
     return name.includes(query) || roll.includes(query) || course.includes(query) || code.includes(query);
   });
 
+  // Live totals shown in the summary chips above the roster.
   const presentCount = Object.values(attendanceMap).filter((v) => v === "present").length;
   const absentCount = Object.values(attendanceMap).filter((v) => v === "absent").length;
   const leaveCount = Object.values(attendanceMap).filter((v) => v === "leave").length;
@@ -216,6 +248,7 @@ export const AttendancePage = () => {
         <div className="space-y-6">
           {/* Class & Date Filter Box */}
           <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
+            {/* Date / department / semester / course pickers */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
               <div>
                 <label className="block font-bold text-on-surface-variant uppercase mb-1">Session Date</label>
@@ -290,7 +323,7 @@ export const AttendancePage = () => {
           {/* Roster & Marking Area */}
           {students.length > 0 && (
             <div className="bg-surface-container-lowest rounded-3xl border border-outline-variant/30 shadow-sm overflow-hidden space-y-4">
-              {/* Summary & Quick Actions Header */}
+              {/* Summary chips + bulk "all present / all absent" buttons */}
               <div className="p-6 border-b border-outline-variant/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-3 text-xs">
                   <div className="px-3.5 py-1.5 bg-emerald-50 text-emerald-800 rounded-xl font-bold border border-emerald-200">
@@ -331,7 +364,7 @@ export const AttendancePage = () => {
                 </div>
               </div>
 
-              {/* Table */}
+              {/* Roster table: one row per student with status buttons */}
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead className="bg-surface-container-low text-on-surface-variant uppercase font-bold text-[10px]">
@@ -342,6 +375,7 @@ export const AttendancePage = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-outline-variant/20">
+                    {/* Each row shows Present / Absent / Leave toggle buttons */}
                     {students.map((student) => {
                       const currentStatus = attendanceMap[student._id] || "present";
                       return (

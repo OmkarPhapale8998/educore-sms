@@ -1,19 +1,34 @@
+// ============================================================
+// LoginPage.jsx
+// Sign-in screen with a two-column layout: branding plus
+// demo-login shortcut buttons on the left, email/password
+// form on the right. After login each role is routed to its
+// own home page (student / faculty / admin).
+// ============================================================
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 
 export const LoginPage = () => {
+  // login action from AuthContext; navigate moves between pages.
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  // Typed email address.
   const [email, setEmail] = useState("");
+  // Typed password.
   const [password, setPassword] = useState("");
+  // Show the password as plain text when true.
   const [showPassword, setShowPassword] = useState(false);
+  // True while the sign-in request is running.
   const [loading, setLoading] = useState(false);
 
+  // Runs on submit: validate inputs, log in, then route by role.
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Step 1: basic validation - fields cannot be empty.
     const cleanEmail = email.trim();
     const cleanPassword = password.trim();
     if (!cleanEmail || !cleanPassword) {
@@ -21,10 +36,12 @@ export const LoginPage = () => {
       return;
     }
 
+    // Step 2: call the login API (handled inside AuthContext).
     setLoading(true);
     const res = await login(cleanEmail, cleanPassword);
     setLoading(false);
 
+    // Step 3: send each role to its own landing page.
     if (res?.success) {
       if (res.user.role === "student") navigate("/student/portal");
       else if (res.user.role === "faculty") navigate("/faculty/dashboard");
@@ -32,6 +49,7 @@ export const LoginPage = () => {
     }
   };
 
+  // Fills the form with demo credentials for quick presentations.
   const handleDemoFill = (roleEmail, rolePass) => {
     setEmail(roleEmail);
     setPassword(rolePass);
@@ -65,7 +83,7 @@ export const LoginPage = () => {
                 <span className="text-secondary-fixed">Management Portal</span>
               </h2>
               <p className="text-sm text-on-primary/80 leading-relaxed">
-                Streamline academics, attendance, fees, exams, and notices in one unified intelligent system.
+                Streamline academics, attendance, exams, and notices in one unified intelligent system.
               </p>
             </div>
           </div>

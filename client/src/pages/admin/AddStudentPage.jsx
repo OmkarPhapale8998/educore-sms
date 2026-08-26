@@ -1,8 +1,15 @@
-﻿import React, { useState } from "react";
+﻿// ============================================================
+// AddStudentPage.jsx
+// New-student enrollment wizard with 3 steps: (1) personal
+// details, (2) academic profile, (3) guardian & address.
+// Each step is validated before the Next button moves on.
+// ============================================================
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { studentAPI } from "../../api";
 import toast from "react-hot-toast";
 
+// Department options for the dropdown.
 const DEPARTMENTS = [
   "Computer Science",
   "Mechanical Engineering",
@@ -14,9 +21,12 @@ const DEPARTMENTS = [
 
 export const AddStudentPage = () => {
   const navigate = useNavigate();
+  // Current wizard step (1, 2 or 3).
   const [step, setStep] = useState(1);
+  // True while the create-student API call is running.
   const [loading, setLoading] = useState(false);
 
+  // Every field of the enrollment form lives in this one object.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,10 +46,12 @@ export const AddStudentPage = () => {
     address: ""
   });
 
+  // Updates a single field in formData using the input's "name" attribute.
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Checks the required fields of the given step; shows a toast when invalid.
   const validateStep = (s) => {
     if (s === 1) {
       if (!formData.name || !formData.email || !formData.phone) {
@@ -55,16 +67,20 @@ export const AddStudentPage = () => {
     return true;
   };
 
+  // Moves to the next step only if the current one validates.
   const handleNext = () => {
     if (validateStep(step)) setStep(step + 1);
   };
 
+  // Sends the completed form to the API and opens the new student's profile.
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Step 1: submit all collected data to the API.
     setLoading(true);
     try {
       const res = await studentAPI.create(formData);
       if (res.data.success) {
+        // Step 2: on success, redirect to the created student's profile page.
         toast.success("Student registered successfully!");
         navigate(`/students/${res.data.data._id}`);
       }

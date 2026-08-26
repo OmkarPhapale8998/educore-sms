@@ -1,23 +1,37 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+﻿// ============================================================
+// TopNav.jsx
+// Sticky header bar shown on every logged-in page: global
+// student search, dark/light theme toggle, notification bell
+// dropdown, and the user profile menu (profile / logout).
+// ============================================================
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext";
 import { notificationAPI } from "../../api";
 
 export const TopNav = ({ onMobileMenuClick }) => {
+  // Auth gives the user + logout; Theme gives the dark-mode toggle.
   const { user, logout } = useAuth();
   const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
+  // Latest notifications fetched from the API.
   const [notifications, setNotifications] = useState([]);
+  // How many are still unread (drives the red badge).
   const [unreadCount, setUnreadCount] = useState(0);
+  // Is the notifications dropdown open?
   const [showNotifMenu, setShowNotifMenu] = useState(false);
+  // Is the profile dropdown open?
   const [showUserMenu, setShowUserMenu] = useState(false);
+  // Text typed into the global search box.
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Refs let us detect clicks OUTSIDE a dropdown to close it.
   const notifRef = useRef();
   const userRef = useRef();
 
+  // Runs once: fetch notifications now, then poll every 60 seconds.
   useEffect(() => {
     fetchNotifications();
     const interval = setInterval(fetchNotifications, 60000); // 1 min poll
@@ -34,6 +48,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Pulls my notifications and unread count from the API (fails silently).
   const fetchNotifications = async () => {
     try {
       const res = await notificationAPI.getMy();
@@ -46,6 +61,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
     }
   };
 
+  // Marks ONE notification as read in the API and in the local list.
   const handleMarkRead = async (id) => {
     try {
       await notificationAPI.markRead(id);
@@ -56,6 +72,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
     } catch (err) {}
   };
 
+  // Marks ALL notifications as read at once.
   const handleMarkAllRead = async () => {
     try {
       await notificationAPI.markAllRead();
@@ -64,6 +81,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
     } catch (err) {}
   };
 
+  // Sends the search text to the Students page as a URL filter.
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
@@ -123,6 +141,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
           {/* Notifications Dropdown */}
           {showNotifMenu && (
             <div className="absolute right-0 mt-3 w-80 sm:w-96 bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/40 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Dropdown header with "mark all read" */}
               <div className="px-4 py-2 flex items-center justify-between border-b border-outline-variant/20">
                 <h3 className="font-bold text-sm text-on-surface">Notifications</h3>
                 {unreadCount > 0 && (
@@ -135,6 +154,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
                 )}
               </div>
 
+              {/* The notification list (or an empty-state message) */}
               <div className="max-h-80 overflow-y-auto divide-y divide-outline-variant/10">
                 {notifications.length === 0 ? (
                   <div className="p-6 text-center text-on-surface-variant text-sm">
@@ -153,13 +173,10 @@ export const TopNav = ({ onMobileMenuClick }) => {
                       }`}
                     >
                       <div className={`p-2 rounded-full mt-0.5 shrink-0 ${
-                        n.type === "low_attendance" ? "bg-error/10 text-error" :
-                        n.type === "fee_due" || n.type === "fee_overdue" ? "bg-amber-100 text-amber-700" :
-                        "bg-primary/10 text-primary"
+                        n.type === "low_attendance" ? "bg-error/10 text-error" : "bg-primary/10 text-primary"
                       }`}>
                         <span className="material-symbols-outlined text-base">
                           {n.type === "low_attendance" ? "warning" :
-                           n.type.includes("fee") ? "receipt" :
                            n.type === "marks_published" ? "grade" : "campaign"}
                         </span>
                       </div>
@@ -196,6 +213,7 @@ export const TopNav = ({ onMobileMenuClick }) => {
 
           {showUserMenu && (
             <div className="absolute right-0 mt-3 w-56 bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/40 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Name, email and role of the signed-in user */}
               <div className="px-4 py-2 border-b border-outline-variant/20">
                 <p className="font-bold text-sm text-on-surface truncate">{user?.name}</p>
                 <p className="text-xs text-on-surface-variant truncate">{user?.email}</p>

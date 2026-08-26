@@ -1,20 +1,33 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// FacultyDashboard.jsx
+// Faculty home screen: welcome banner with quick-action
+// buttons (mark attendance / enter marks), stat cards, the
+// faculty member's assigned subjects and latest notices.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { courseAPI, examAPI, noticeAPI } from "../../api";
 import { StatsCard, TableSkeleton } from "../../components/ui";
 
 export const FacultyDashboard = () => {
+  // Logged-in user from AuthContext (for the welcome name).
   const { user } = useAuth();
+  // Courses assigned for teaching.
   const [courses, setCourses] = useState([]);
+  // Upcoming exams list.
   const [exams, setExams] = useState([]);
+  // Latest campus notices.
   const [notices, setNotices] = useState([]);
+  // True while data is loading.
   const [loading, setLoading] = useState(true);
 
+  // Runs once when the page loads.
   useEffect(() => {
     fetchFacultyData();
   }, []);
 
+  // Loads courses, exams and notices in parallel.
   const fetchFacultyData = async () => {
     setLoading(true);
     try {

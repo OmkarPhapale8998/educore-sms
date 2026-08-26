@@ -1,3 +1,10 @@
+// ============================================================
+// App.jsx
+// Root component: maps every URL to its page. Public pages
+// (login/register) sit outside protection; everything else is
+// wrapped in ProtectedRoute (login check) + Layout (sidebar
+// and top bar around the page content).
+// ============================================================
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -18,7 +25,6 @@ import { StudentProfilePage } from "./pages/admin/StudentProfilePage";
 import { FacultyPage } from "./pages/admin/FacultyPage";
 import { CoursesPage } from "./pages/admin/CoursesPage";
 import { AttendancePage } from "./pages/admin/AttendancePage";
-import { FeesPage } from "./pages/admin/FeesPage";
 import { ExamsPage } from "./pages/admin/ExamsPage";
 import { NoticesPage } from "./pages/admin/NoticesPage";
 import { ReportsPage } from "./pages/admin/ReportsPage";
@@ -31,6 +37,7 @@ import { StudentPortal } from "./pages/student/StudentPortal";
 export default function App() {
   return (
     <>
+      {/* Global toast popup styling for success/error messages */}
       <Toaster
         position="top-right"
         toastOptions={{
@@ -59,14 +66,15 @@ export default function App() {
         }}
       />
 
+      {/* The full route table of the application */}
       <Routes>
-        {/* Public Auth Routes */}
+        {/* Public Auth Routes - open to everyone */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
 
-        {/* Protected App Routes */}
+        {/* Protected App Routes - require login; Layout adds sidebar + top bar */}
         <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
             {/* Admin Routes */}
@@ -77,7 +85,6 @@ export default function App() {
             <Route path="/faculty" element={<FacultyPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/attendance" element={<AttendancePage />} />
-            <Route path="/fees" element={<FeesPage />} />
             <Route path="/exams" element={<ExamsPage />} />
             <Route path="/notices" element={<NoticesPage />} />
             <Route path="/reports" element={<ReportsPage />} />
@@ -89,12 +96,11 @@ export default function App() {
             {/* Student Dedicated Routes */}
             <Route path="/student/portal" element={<StudentPortal />} />
             <Route path="/student/attendance" element={<StudentPortal />} />
-            <Route path="/student/fees" element={<StudentPortal />} />
             <Route path="/student/results" element={<StudentPortal />} />
           </Route>
         </Route>
 
-        {/* Catch-all redirect to login or dashboard */}
+        {/* Any unknown URL falls back to the dashboard */}
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </>
