@@ -1,147 +1,144 @@
-﻿const express = require("express");
+﻿// ============================================================
+// routes/reports.js
+// Analytics + export endpoints for dashboards: enrollment
+// trends, department distribution, pass rates, summary cards,
+// and an Excel export of all students.
+// Admin and faculty only (checked once for every route below).
+// ============================================================
+const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 const { protect, authorize } = require("../middleware/auth");
-const Student = require("../models/Student");
-const Attendance = require("../models/Attendance");
-const Fee = require("../models/Fee");
-const Marks = require("../models/Marks");
+const { query } = require("../config/db");
 const { generateExcelReport } = require("../utils/excelGenerator");
 
 router.use(protect, authorize("admin", "faculty"));
 
-// GET enrollment trend (students per admission year)
+// @route  GET /api/reports/enrollment-trend
+// Students per admission year — data for the line/bar chart.
+// GROUP BY year collapses rows into one count per year.
 router.get("/enrollment-trend", async (req, res, next) => {
   try {
-    const data = await Student.aggregate([
-      { $group: { _id: "$admissionYear", count: { $sum: 1 } } },
-      { $sort: { _id: 1 } },
-      { $project: { year: "$_id", count: 1, _id: 0 } }
-    ]);
-    res.json({ success: true, data });
+    const { rows } = await query(
+      `SELECT admission_year AS year, COUNT(*)::int AS count
+       FROM students
+       GROUP BY admission_year
+       ORDER BY admission_year ASC`
+    );
+    res.json({ success: true, data: rows });
   } catch (err) { next(err); }
 });
 
-// GET department distribution
+// @route  GET /api/reports/department-distribution
+// Active students per department — data for the pie chart.
 router.get("/department-distribution", async (req, res, next) => {
   try {
-    const data = await Student.aggregate([
-      { $match: { status: "active" } },
-      { $group: { _id: "$department", count: { $sum: 1 } } },
-      { $project: { department: "$_id", count: 1, _id: 0 } }
-    ]);
-    res.json({ success: true, data });
+    const { rows } = await query(
+      `SELECT department, COUNT(*)::int AS count
+       FROM students
+       WHERE status = 'active' AND department IS NOT NULL
+       GROUP BY department
+       ORDER BY department ASC`
+    );
+    res.json({ success: true, data: rows });
   } catch (err) { next(err); }
 });
 
-// GET attendance trend (last N weeks)
-router.get("/attendance-trend", async (req, res, next) => {
-  try {
-    const weeks = parseInt(req.query.weeks) || 10;
-    const startDate = new Date();
-    startDate.setDate(startDate.getDate() - weeks * 7);
-
-    const data = await Attendance.aggregate([
-      { $match: { date: { $gte: startDate } } },
-      { $group: {
-        _id: { $week: "$date" },
-        total: { $sum: 1 },
-        present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } }
-      }},
-      { $sort: { _id: 1 } },
-      { $project: {
-        week: "$_id",
-        percentage: { $round: [{ $multiply: [{ $divide: ["$present", "$total"] }, 100] }, 1] },
-        _id: 0
-      }}
-    ]);
-    res.json({ success: true, data });
-  } catch (err) { next(err); }
-});
-
-// GET fee collection trend (monthly)
-router.get("/fee-collection-trend", async (req, res, next) => {
-  try {
-    const data = await Fee.aggregate([
-      { $unwind: "$paymentHistory" },
-      { $group: {
-        _id: { month: { $month: "$paymentHistory.date" }, year: { $year: "$paymentHistory.date" } },
-        collected: { $sum: "$paymentHistory.amount" }
-      }},
-      { $sort: { "_id.year": 1, "_id.month": 1 } },
-      { $project: {
-        month: "$_id.month", year: "$_id.year",
-        collected: 1, _id: 0
-      }}
-    ]);
-    res.json({ success: true, data });
-  } catch (err) { next(err); }
-});
-
-// GET pass rate for an exam
+// @route  GET /api/reports/pass-rate
+// Pass percentage per exam. A student "passes" when their grade
+// is anything except F; optional ?examId limits to one exam.
 router.get("/pass-rate", async (req, res, next) => {
   try {
     const { examId } = req.query;
-    const match = examId ? { exam: new mongoose.Types.ObjectId(examId) } : {};
-    const data = await Marks.aggregate([
-      { $match: match },
-      { $lookup: { from: "exams", localField: "exam", foreignField: "_id", as: "exam" } },
-      { $unwind: "$exam" },
-      { $group: {
-        _id: "$exam.name",
-        total: { $sum: 1 },
-        passed: { $sum: { $cond: [{ $ne: ["$grade", "F"] }, 1, 0] } }
-      }},
-      { $project: {
-        examName: "$_id",
-        total: 1, passed: 1,
-        passRate: { $round: [{ $multiply: [{ $divide: ["$passed", "$total"] }, 100] }, 1] },
-        _id: 0
-      }}
-    ]);
-    res.json({ success: true, data });
+    const params = [];
+    let where = "";
+    if (examId) {
+      params.push(examId);
+      where = `WHERE m.exam_id = $1`;
+    }
+
+    // CASE WHEN counts passers; ROUND gives one decimal place
+    const { rows } = await query(
+      `SELECT e.name AS "examName",
+              COUNT(*)::int AS total,
+              SUM(CASE WHEN m.grade <> 'F' THEN 1 ELSE 0 END)::int AS passed,
+              ROUND(SUM(CASE WHEN m.grade <> 'F' THEN 1 ELSE 0 END)::numeric * 100 / COUNT(*), 1)::float8 AS "passRate"
+       FROM marks m
+       JOIN exams e ON e.id = m.exam_id
+       ${where}
+       GROUP BY e.name
+       ORDER BY e.name ASC`,
+      params
+    );
+    res.json({ success: true, data: rows });
   } catch (err) { next(err); }
 });
 
-// GET dashboard summary stats
+// @route  GET /api/reports/dashboard-summary
+// Three headline numbers for the admin dashboard:
+// total students, total faculty, today's attendance %.
+// Promise.all runs the three queries at the same time.
 router.get("/dashboard-summary", async (req, res, next) => {
   try {
-    const [totalStudents, totalFaculty, feeStats, todayAttendance] = await Promise.all([
-      Student.countDocuments({ status: "active" }),
-      require("../models/Faculty").countDocuments({ status: "active" }),
-      Fee.aggregate([{ $group: { _id: null, totalDue: { $sum: "$totalAmount" }, collected: { $sum: "$paidAmount" } } }]),
-      Attendance.aggregate([
-        { $match: { date: { $gte: new Date(new Date().setHours(0,0,0,0)) } } },
-        { $group: { _id: null, total: { $sum: 1 }, present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } } } }
-      ])
+    const [studentRes, facultyRes, attRes] = await Promise.all([
+      query(`SELECT COUNT(*)::int AS total FROM students WHERE status = 'active'`),
+      query(`SELECT COUNT(*)::int AS total FROM faculties WHERE status = 'active'`),
+      query(`SELECT SUM(CASE WHEN status = 'present' THEN 1 ELSE 0 END)::int AS present,
+                    SUM(CASE WHEN status IN ('present', 'absent') THEN 1 ELSE 0 END)::int AS counted
+             FROM attendances
+             WHERE date = current_date`)
     ]);
 
-    const fee = feeStats[0] || { totalDue: 0, collected: 0 };
-    const att = todayAttendance[0] || { total: 0, present: 0 };
+    const att = attRes.rows[0];
+    // 'counted' excludes 'leave' so on-leave students don't drag the % down
 
     res.json({
       success: true,
       data: {
-        totalStudents,
-        totalFaculty,
-        totalRevenue: fee.collected,
-        pendingFees: fee.totalDue - fee.collected,
-        todayAttendancePercent: att.total > 0 ? parseFloat(((att.present / att.total) * 100).toFixed(1)) : 0
+        totalStudents: studentRes.rows[0].total,
+        totalFaculty: facultyRes.rows[0].total,
+        todayAttendancePercent: att.counted > 0 ? parseFloat(((att.present / att.counted) * 100).toFixed(1)) : 0
       }
     });
   } catch (err) { next(err); }
 });
 
-// GET Excel export of students
+// @route  GET /api/reports/export/students
+// Downloads every student (with filters) as an Excel .xlsx file.
 router.get("/export/students", async (req, res, next) => {
   try {
     const { department, semester } = req.query;
-    const query = {};
-    if (department) query.department = department;
-    if (semester) query.semester = parseInt(semester);
+    // Optional filters built dynamically like elsewhere
+    const params = [];
+    const where = [];
+    if (department) { params.push(department); where.push(`s.department = $${params.length}`); }
+    if (semester) { params.push(parseInt(semester)); where.push(`s.semester = $${params.length}`); }
+    const whereSql = where.length ? `WHERE ${where.join(" AND ")}` : "";
 
-    const students = await Student.find(query).populate("userId", "name email phone");
+    const { rows } = await query(
+      `SELECT s.id AS "_id", s.user_id AS "userId",
+              u.name AS "userName", u.email AS "userEmail", u.phone AS "userPhone",
+              s.roll_no AS "rollNo", s.department, s.semester,
+              s.admission_year AS "admissionYear", s.status
+       FROM students s
+       JOIN users u ON u.id = s.user_id
+       ${whereSql}
+       ORDER BY s.created_at DESC`,
+      params
+    );
 
+    // Reshape into the nested objects the Excel generator expects
+    const students = rows.map(r => ({
+      _id: r._id,
+      rollNo: r.rollNo,
+      userId: { _id: r.userId, name: r.userName, email: r.userEmail, phone: r.userPhone },
+      department: r.department,
+      semester: r.semester,
+      admissionYear: r.admissionYear,
+      status: r.status
+    }));
+
+    // Tell the browser this response should be saved as a file,
+    // then stream the workbook directly into it
     res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     res.setHeader("Content-Disposition", "attachment; filename=students-report.xlsx");
     await generateExcelReport(students, res);
