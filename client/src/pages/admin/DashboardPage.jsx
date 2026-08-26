@@ -1,35 +1,44 @@
-﻿import React, { useEffect, useState } from "react";
+﻿// ============================================================
+// DashboardPage.jsx
+// Admin home screen: shows summary cards (students, faculty,
+// today's attendance) and a department distribution pie chart.
+// ============================================================
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell, AreaChart, Area
-} from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { reportAPI, examAPI, noticeAPI } from "../../api";
 import { StatsCard, Badge } from "../../components/ui";
 
+// Colors cycled through the pie chart slices.
 const PIE_COLORS = ["#00236f", "#006591", "#39b8fd", "#ffb95f", "#3e2400", "#757682"];
 
 export const DashboardPage = () => {
+  // Totals for the KPI cards (students, faculty, today's attendance %).
   const [summary, setSummary] = useState(null);
+  // Enrollment-per-year data (kept for future charts).
   const [enrollmentData, setEnrollmentData] = useState([]);
+  // Student count per department - feeds the pie chart.
   const [deptData, setDeptData] = useState([]);
-  const [attendanceTrend, setAttendanceTrend] = useState([]);
+  // Next few exams for the "Upcoming" list.
   const [upcomingExams, setUpcomingExams] = useState([]);
+  // Latest notices for the bulletin preview.
   const [recentNotices, setRecentNotices] = useState([]);
+  // True while the dashboard data is loading.
   const [loading, setLoading] = useState(true);
 
+  // Runs once when the page loads.
   useEffect(() => {
     fetchDashboardData();
   }, []);
 
+  // Loads every dashboard number in parallel (summary, charts, exams, notices).
   const fetchDashboardData = async () => {
     setLoading(true);
     try {
-      const [sumRes, enrollRes, deptRes, attRes, examRes, noticeRes] = await Promise.all([
+      const [sumRes, enrollRes, deptRes, examRes, noticeRes] = await Promise.all([
         reportAPI.getDashboardSummary(),
         reportAPI.getEnrollmentTrend(),
         reportAPI.getDeptDistribution(),
-        reportAPI.getAttendanceTrend(8),
         examAPI.getAll({ limit: 4 }),
         noticeAPI.getAll({ limit: 4 }),
       ]);
@@ -37,7 +46,6 @@ export const DashboardPage = () => {
       if (sumRes.data.success) setSummary(sumRes.data.data);
       if (enrollRes.data.success) setEnrollmentData(enrollRes.data.data);
       if (deptRes.data.success) setDeptData(deptRes.data.data);
-      if (attRes.data.success) setAttendanceTrend(attRes.data.data);
       if (examRes.data.success) setUpcomingExams(examRes.data.data.slice(0, 3));
       if (noticeRes.data.success) setRecentNotices(noticeRes.data.data.slice(0, 3));
     } catch (err) {
@@ -79,7 +87,7 @@ export const DashboardPage = () => {
       </div>
 
       {/* KPI Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <StatsCard
           title="Total Students"
           value={summary?.totalStudents || 0}
@@ -96,14 +104,6 @@ export const DashboardPage = () => {
           subtitle="Full-time & visiting"
         />
         <StatsCard
-          title="Fee Collection"
-          value={`₹${((summary?.totalRevenue || 0) / 1000).toFixed(1)}k`}
-          icon="payments"
-          color="success"
-          change="+12.5%"
-          subtitle={`₹${((summary?.pendingFees || 0) / 1000).toFixed(1)}k pending`}
-        />
-        <StatsCard
           title="Today's Attendance"
           value={`${summary?.todayAttendancePercent || 0}%`}
           icon="check_circle"
@@ -112,55 +112,16 @@ export const DashboardPage = () => {
         />
       </div>
 
-      {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Attendance Trend Chart */}
-        <div className="lg:col-span-2 bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-base font-bold text-on-surface">Attendance Performance Trend</h2>
-              <p className="text-xs text-on-surface-variant">Weekly institutional attendance average (%)</p>
-            </div>
-            <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">
-              Last 8 Weeks
-            </span>
-          </div>
-
-          <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={attendanceTrend.length > 0 ? attendanceTrend : [
-                { week: "W1", percentage: 82 }, { week: "W2", percentage: 86 },
-                { week: "W3", percentage: 79 }, { week: "W4", percentage: 91 },
-                { week: "W5", percentage: 88 }, { week: "W6", percentage: 84 },
-                { week: "W7", percentage: 92 }, { week: "W8", percentage: 89 },
-              ]}>
-                <defs>
-                  <linearGradient id="attGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#00236f" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#00236f" stopOpacity={0.0}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eceef0" />
-                <XAxis dataKey="week" stroke="#757682" fontSize={11} />
-                <YAxis domain={[50, 100]} stroke="#757682" fontSize={11} unit="%" />
-                <Tooltip
-                  contentStyle={{ backgroundColor: "#ffffff", borderRadius: "12px", border: "1px solid #e0e3e5" }}
-                  formatter={(val) => [`${val}%`, "Attendance"]}
-                />
-                <Area type="monotone" dataKey="percentage" stroke="#00236f" strokeWidth={3} fillOpacity={1} fill="url(#attGrad)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+      {/* Department Breakdown Chart */}
+      <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm">
+        <div>
+          <h2 className="text-base font-bold text-on-surface">Department Breakdown</h2>
+          <p className="text-xs text-on-surface-variant">Student count per branch</p>
         </div>
 
-        {/* Department Distribution Chart */}
-        <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-on-surface">Department Breakdown</h2>
-            <p className="text-xs text-on-surface-variant">Student count per branch</p>
-          </div>
-
-          <div className="h-52 w-full my-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mt-4">
+          {/* Pie chart (falls back to sample data until the API responds) */}
+          <div className="h-56 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -187,16 +148,17 @@ export const DashboardPage = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="space-y-1.5 pt-2 border-t border-outline-variant/20 max-h-28 overflow-y-auto">
+          {/* Color-coded legend listing each department and its count */}
+          <div className="space-y-1.5 max-h-40 overflow-y-auto">
             {(deptData.length > 0 ? deptData : [
               { department: "Computer Science", count: 45 },
               { department: "Mechanical Engg", count: 32 },
               { department: "Civil Engg", count: 28 },
             ]).map((d, i) => (
-              <div key={i} className="flex items-center justify-between text-xs">
+              <div key={i} className="flex items-center justify-between text-xs border-b border-outline-variant/20 pb-1.5 last:border-b-0">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: PIE_COLORS[i % PIE_COLORS.length] }} />
-                  <span className="text-on-surface-variant truncate max-w-[140px]">{d.department}</span>
+                  <span className="text-on-surface-variant truncate">{d.department}</span>
                 </div>
                 <span className="font-bold text-on-surface">{d.count}</span>
               </div>

@@ -1,18 +1,32 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// NoticesPage.jsx
+// Campus notice board: category filter pills, notice cards
+// (with pin/unpin, delete and attachment downloads) and a
+// "Publish Notice" modal that accepts an optional PDF.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { noticeAPI } from "../../api";
+import { API_ORIGIN } from "../../api/client";
 import { TableSkeleton, Modal } from "../../components/ui";
 import toast from "react-hot-toast";
 
-const CATEGORIES = ["All", "General", "Exam", "Event", "Holiday", "Fee", "Academic", "Urgent"];
+// Filter pill options at the top of the board.
+const CATEGORIES = ["All", "General", "Exam", "Event", "Holiday", "Academic", "Urgent"];
 
 export const NoticesPage = () => {
+  // Notices currently displayed as cards.
   const [notices, setNotices] = useState([]);
+  // Selected category pill ("All" shows everything).
   const [category, setCategory] = useState("All");
+  // True while notices are being fetched.
   const [loading, setLoading] = useState(true);
 
   // Post Notice Modal
+  // Opens/closes the publish dialog.
   const [isPostOpen, setIsPostOpen] = useState(false);
+  // True while the publish request runs.
   const [submitting, setSubmitting] = useState(false);
+  // Fields of the publish form.
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -20,12 +34,15 @@ export const NoticesPage = () => {
     targetAudience: "all",
     isPinned: false
   });
+  // Optional PDF file attached to a new notice.
   const [attachment, setAttachment] = useState(null);
 
+  // Re-fetches notices whenever a category pill is clicked.
   useEffect(() => {
     fetchNotices();
   }, [category]);
 
+  // Fetches notices filtered by the selected category.
   const fetchNotices = async () => {
     setLoading(true);
     try {
@@ -40,10 +57,12 @@ export const NoticesPage = () => {
     }
   };
 
+  // Publishes a new notice; packs fields + optional file into FormData.
   const handleCreateNotice = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     try {
+      // FormData lets us send both text fields and the attachment together.
       const payload = new FormData();
       payload.append("title", formData.title);
       payload.append("description", formData.description);
@@ -67,6 +86,7 @@ export const NoticesPage = () => {
     }
   };
 
+  // Pins/unpins a notice so it stays on top of the board.
   const handleTogglePin = async (id) => {
     try {
       const res = await noticeAPI.togglePin(id);
@@ -79,6 +99,7 @@ export const NoticesPage = () => {
     }
   };
 
+  // Asks for confirmation, deletes the notice, refreshes the board.
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this notice?")) return;
     try {
@@ -134,6 +155,7 @@ export const NoticesPage = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* One notice card (highlighted when pinned) */}
           {notices.map((notice) => (
             <div
               key={notice._id}
@@ -189,7 +211,7 @@ export const NoticesPage = () => {
                       <span className="font-semibold text-on-surface truncate">{notice.attachment.name || "Attachment"}</span>
                     </div>
                     <a
-                      href={`http://localhost:5000/${notice.attachment.path}`}
+                      href={`${API_ORIGIN}/${notice.attachment.path}`}
                       target="_blank"
                       rel="noreferrer"
                       className="px-3 py-1 bg-primary text-on-primary font-bold rounded-lg text-[11px] hover:bg-primary-container shrink-0"
@@ -209,6 +231,7 @@ export const NoticesPage = () => {
         </div>
       )}
 
+      {/* Publish Notice modal */}
       <Modal
         isOpen={isPostOpen}
         onClose={() => setIsPostOpen(false)}

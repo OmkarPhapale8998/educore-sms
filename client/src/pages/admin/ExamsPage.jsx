@@ -1,8 +1,15 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// ExamsPage.jsx
+// Exams & results hub: a filterable table of scheduled exams,
+// a "Schedule Examination" modal, and a bulk "Enter Marks"
+// modal that publishes scores for every student in one go.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { examAPI, courseAPI, studentAPI, marksAPI } from "../../api";
 import { Badge, TableSkeleton, Modal } from "../../components/ui";
 import toast from "react-hot-toast";
 
+// Options for the department dropdowns.
 const DEPARTMENTS = [
   "Computer Science",
   "Mechanical Engineering",
@@ -13,15 +20,23 @@ const DEPARTMENTS = [
 ];
 
 export const ExamsPage = () => {
+  // Exams shown in the table.
   const [exams, setExams] = useState([]);
+  // All courses (options for the schedule-exam form).
   const [courses, setCourses] = useState([]);
+  // Department filter value.
   const [department, setDepartment] = useState("");
+  // Exam-type filter value.
   const [type, setType] = useState("");
+  // True while exams are being fetched.
   const [loading, setLoading] = useState(true);
 
   // Schedule Exam Modal
+  // Opens/closes the scheduling dialog.
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
+  // True while the create request runs.
   const [submittingExam, setSubmittingExam] = useState(false);
+  // Fields of the schedule-exam form.
   const [examForm, setExamForm] = useState({
     name: "",
     type: "Mid-Term",
@@ -37,15 +52,20 @@ export const ExamsPage = () => {
   });
 
   // Enter Marks Modal
+  // The exam whose marks are being entered (null = modal closed).
   const [selectedExamForMarks, setSelectedExamForMarks] = useState(null);
+  // Editable marks rows: one entry per student of the exam.
   const [marksRoster, setMarksRoster] = useState([]);
+  // True while saving marks.
   const [savingMarks, setSavingMarks] = useState(false);
 
+  // Refreshes the exam list whenever a filter changes.
   useEffect(() => {
     fetchExams();
     fetchCourses();
   }, [department, type]);
 
+  // Fetches exams using current department/type filters.
   const fetchExams = async () => {
     setLoading(true);
     try {
@@ -61,6 +81,7 @@ export const ExamsPage = () => {
     }
   };
 
+  // Loads all courses once for the schedule-exam course dropdown.
   const fetchCourses = async () => {
     try {
       const res = await courseAPI.getAll();
@@ -68,6 +89,7 @@ export const ExamsPage = () => {
     } catch (err) {}
   };
 
+  // Creates the exam; number fields are converted before sending.
   const handleScheduleExam = async (e) => {
     e.preventDefault();
     setSubmittingExam(true);
@@ -91,14 +113,17 @@ export const ExamsPage = () => {
     }
   };
 
+  // Opens the marks modal: loads the class roster + any existing marks.
   const handleOpenMarksModal = async (exam) => {
     setSelectedExamForMarks(exam);
     try {
+      // Fetch students of this exam's class and saved marks in parallel.
       const [stdRes, marksRes] = await Promise.all([
         studentAPI.getAll({ department: exam.department, semester: exam.semester, limit: 100 }),
         marksAPI.getByExam(exam._id)
       ]);
 
+      // Index already-saved marks by student id for quick lookup.
       const existingMarksMap = {};
       if (marksRes.data.success) {
         marksRes.data.data.forEach((m) => {
@@ -106,6 +131,7 @@ export const ExamsPage = () => {
         });
       }
 
+      // Build one editable row per student (pre-filled with saved marks).
       if (stdRes.data.success) {
         const roster = stdRes.data.data.map((s) => {
           const em = existingMarksMap[s._id] || {};
@@ -126,6 +152,7 @@ export const ExamsPage = () => {
     }
   };
 
+  // Updates a single field of a single student row in the marks table.
   const handleMarksChange = (idx, field, value) => {
     setMarksRoster((prev) => {
       const next = [...prev];
@@ -134,6 +161,7 @@ export const ExamsPage = () => {
     });
   };
 
+  // Publishes all entered marks in one bulk request; students get notified.
   const handleSaveMarks = async () => {
     setSavingMarks(true);
     try {
@@ -156,6 +184,7 @@ export const ExamsPage = () => {
 
   return (
     <div className="space-y-6">
+      {/* Header with the "Schedule Examination" button */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-black text-on-surface tracking-tight">Exams & Results</h1>
@@ -171,6 +200,7 @@ export const ExamsPage = () => {
         </button>
       </div>
 
+      {/* Filter bar: department + exam type */}
       <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col sm:flex-row gap-3">
         <select
           value={department}
@@ -197,6 +227,7 @@ export const ExamsPage = () => {
         </select>
       </div>
 
+      {/* Exam table: loading / empty / rows */}
       <div className="bg-surface-container-lowest rounded-3xl border border-outline-variant/30 shadow-sm overflow-hidden">
         {loading ? (
           <div className="p-6">
@@ -223,6 +254,7 @@ export const ExamsPage = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-outline-variant/20">
+                {/* One row per scheduled exam */}
                 {exams.map((exam) => (
                   <tr key={exam._id} className="hover:bg-surface-container-low/50">
                     <td className="py-3.5 px-6">
@@ -263,6 +295,7 @@ export const ExamsPage = () => {
         )}
       </div>
 
+      {/* Schedule Examination modal form */}
       <Modal
         isOpen={isScheduleOpen}
         onClose={() => setIsScheduleOpen(false)}
@@ -404,6 +437,7 @@ export const ExamsPage = () => {
         </form>
       </Modal>
 
+      {/* Enter Marks modal: one editable row per student */}
       <Modal
         isOpen={!!selectedExamForMarks}
         onClose={() => setSelectedExamForMarks(null)}
@@ -411,6 +445,7 @@ export const ExamsPage = () => {
         maxWidth="max-w-4xl"
       >
         <div className="space-y-4 text-xs">
+          {/* Exam limits shown for reference while typing marks */}
           <div className="p-4 bg-surface-container-low rounded-2xl flex items-center justify-between">
             <p className="text-on-surface-variant font-medium">
               Max Marks: <strong className="text-on-surface">{selectedExamForMarks?.totalMarks}</strong> • Pass Marks: <strong className="text-on-surface">{selectedExamForMarks?.passingMarks}</strong>
@@ -432,6 +467,7 @@ export const ExamsPage = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-outline-variant/20">
+                {/* Marks inputs per student ("Absent?" disables the fields) */}
                 {marksRoster.map((item, idx) => (
                   <tr key={item.studentId} className="hover:bg-surface-container-low/40">
                     <td className="py-2.5 px-4 font-mono font-bold text-primary">{item.rollNo}</td>

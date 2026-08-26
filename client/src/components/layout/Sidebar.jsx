@@ -1,24 +1,32 @@
-﻿import React from "react";
+﻿// ============================================================
+// Sidebar.jsx
+// Left navigation menu. It shows a different set of links for
+// each role (admin / faculty / student) and turns into a
+// slide-in drawer with a dark backdrop on mobile screens.
+// ============================================================
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
+  // Logged-in user (role + name) and logout action from AuthContext.
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
+  // Menu items shown to admins.
   const adminLinks = [
     { to: "/dashboard", icon: "dashboard", label: "Dashboard" },
     { to: "/students", icon: "group", label: "Students" },
     { to: "/faculty", icon: "badge", label: "Faculty" },
     { to: "/courses", icon: "school", label: "Courses" },
     { to: "/attendance", icon: "event_available", label: "Attendance" },
-    { to: "/fees", icon: "payments", label: "Fees" },
     { to: "/exams", icon: "quiz", label: "Exams" },
     { to: "/notices", icon: "campaign", label: "Notices" },
     { to: "/reports", icon: "analytics", label: "Reports" },
     { to: "/settings", icon: "settings", label: "Settings" },
   ];
 
+  // Menu items shown to faculty members.
   const facultyLinks = [
     { to: "/faculty/dashboard", icon: "dashboard", label: "Dashboard" },
     { to: "/attendance", icon: "event_available", label: "Mark Attendance" },
@@ -28,19 +36,21 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
     { to: "/settings", icon: "settings", label: "Settings" },
   ];
 
+  // Menu items shown to students.
   const studentLinks = [
     { to: "/student/portal", icon: "dashboard", label: "My Portal" },
     { to: "/student/attendance", icon: "event_available", label: "My Attendance" },
-    { to: "/student/fees", icon: "payments", label: "Fee Status" },
     { to: "/student/results", icon: "workspace_premium", label: "Results" },
     { to: "/notices", icon: "campaign", label: "Notices" },
     { to: "/settings", icon: "settings", label: "Settings" },
   ];
 
+  // Pick the link list matching the logged-in user's role.
   let links = adminLinks;
   if (user?.role === "faculty") links = facultyLinks;
   else if (user?.role === "student") links = studentLinks;
 
+  // Closes the mobile drawer (after tapping a link or the backdrop).
   const closeSidebar = () => {
     if (setIsMobileOpen) setIsMobileOpen(false);
   };
@@ -83,8 +93,9 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
           </button>
         </div>
 
-        {/* Nav Links */}
+        {/* Nav Links - active page gets a highlighted style */}
         <div className="flex-1 overflow-y-auto px-4 flex flex-col gap-1.5 custom-scrollbar">
+          {/* One menu button per link; NavLink knows which one is active */}
           {links.map((link) => (
             <NavLink
               key={link.to}

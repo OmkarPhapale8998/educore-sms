@@ -1,44 +1,64 @@
+// ============================================================
+// StudentPortal.jsx
+// Student home screen: a profile banner with overall
+// attendance and eligibility, plus tabs for Overview metrics,
+// date-wise daily attendance (with filters), exam timetable,
+// and announcements.
+// ============================================================
 import React, { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { studentAPI, attendanceAPI, feeAPI, examAPI, noticeAPI } from "../../api";
+import { studentAPI, attendanceAPI, examAPI, noticeAPI } from "../../api";
 import { Badge, TableSkeleton } from "../../components/ui";
 
 export const StudentPortal = () => {
+  // Logged-in user info + current URL (used for tab selection).
   const { user } = useAuth();
   const location = useLocation();
 
+  // MY student record found by matching my email.
   const [student, setStudent] = useState(null);
+  // Subject-wise attendance percentages.
   const [attendanceSummary, setAttendanceSummary] = useState([]);
+  // Every daily attendance row logged for me.
   const [dailyAttendance, setDailyAttendance] = useState([]);
-  const [fees, setFees] = useState([]);
+  // Exams scheduled for my class.
   const [exams, setExams] = useState([]);
+  // Notices aimed at students.
   const [notices, setNotices] = useState([]);
+  // True while portal data is loading.
   const [loading, setLoading] = useState(true);
 
   // Tab State
+  // Picks the starting tab based on the URL (/student/attendance etc.).
   const getInitialTab = () => {
     if (location.pathname.includes("/attendance")) return "attendance";
-    if (location.pathname.includes("/fees")) return "fees";
     if (location.pathname.includes("/results")) return "exams";
     return "overview";
   };
   const [activeTab, setActiveTab] = useState(getInitialTab());
 
   // Date-wise attendance filters
+  // Specific date picked with the date input.
   const [selectedDate, setSelectedDate] = useState("");
+  // Course/subject filter ("all" or a course id).
   const [selectedCourseFilter, setSelectedCourseFilter] = useState("all");
+  // Status filter: present / absent / leave.
   const [statusFilter, setStatusFilter] = useState("all");
+  // Quick date range pills: "all", "today", "week", "month".
   const [quickDateFilter, setQuickDateFilter] = useState("all"); // "all", "today", "week", "month"
 
+  // Keeps the open tab in sync when the URL changes.
   useEffect(() => {
     setActiveTab(getInitialTab());
   }, [location.pathname]);
 
+  // Loads all portal data once the user is known.
   useEffect(() => {
     fetchStudentData();
   }, [user]);
 
+  // Finds MY student record by email, then loads everything else in parallel.
   const fetchStudentData = async () => {
     setLoading(true);
     try {
@@ -47,17 +67,15 @@ export const StudentPortal = () => {
         const myStudent = stdRes.data.data[0];
         setStudent(myStudent);
 
-        const [attSummaryRes, dailyAttRes, feeRes, exRes, notRes] = await Promise.all([
+        const [attSummaryRes, dailyAttRes, exRes, notRes] = await Promise.all([
           attendanceAPI.getPercentage(myStudent._id),
           attendanceAPI.get({ studentId: myStudent._id }),
-          feeAPI.getAll({ search: myStudent.rollNo }),
           examAPI.getAll({ department: myStudent.department, semester: myStudent.semester }),
           noticeAPI.getAll({ targetAudience: "students" })
         ]);
 
         if (attSummaryRes.data?.success) setAttendanceSummary(attSummaryRes.data.data);
         if (dailyAttRes.data?.success) setDailyAttendance(dailyAttRes.data.data);
-        if (feeRes.data?.success) setFees(feeRes.data.data);
         if (exRes.data?.success) setExams(exRes.data.data);
         if (notRes.data?.success) setNotices(notRes.data.data);
       }
@@ -69,6 +87,8 @@ export const StudentPortal = () => {
   };
 
   // Group daily attendance date-wise
+  // Applies every active filter to the raw attendance rows (recomputed only
+  // when the data or a filter changes, thanks to useMemo).
   const filteredDailyAttendance = useMemo(() => {
     return dailyAttendance.filter((record) => {
       const recDate = new Date(record.date);
@@ -104,6 +124,7 @@ export const StudentPortal = () => {
   }, [dailyAttendance, quickDateFilter, selectedDate, selectedCourseFilter, statusFilter]);
 
   // Group by Date key (YYYY-MM-DD)
+  // Buckets the filtered rows into one card per day, newest first.
   const groupedByDate = useMemo(() => {
     const map = {};
     filteredDailyAttendance.forEach((item) => {
@@ -121,14 +142,17 @@ export const StudentPortal = () => {
   }, [filteredDailyAttendance]);
 
   // Calculate Overall Metrics
+  // Simple counters + overall percentage used across the page.
   const totalClasses = dailyAttendance.length;
   const totalPresent = dailyAttendance.filter((a) => a.status === "present").length;
   const totalAbsent = dailyAttendance.filter((a) => a.status === "absent").length;
   const totalLeave = dailyAttendance.filter((a) => a.status === "leave").length;
   const overallPercentage = totalClasses > 0 ? ((totalPresent / totalClasses) * 100).toFixed(1) : "0.0";
+  // College rule: at least 75% attendance is required for exams.
   const isEligible = parseFloat(overallPercentage) >= 75;
 
   // Distinct courses for filter dropdown
+  // Builds the subject list shown in "Filter by Course / Subject".
   const uniqueCourses = useMemo(() => {
     const list = [];
     const seen = new Set();
@@ -145,6 +169,7 @@ export const StudentPortal = () => {
     return list;
   }, [dailyAttendance]);
 
+  // Turns a date string into "Today — ..." / "Yesterday — ..." headings.
   const formatDateTitle = (dateStr) => {
     const d = new Date(dateStr);
     const today = new Date();
@@ -165,6 +190,7 @@ export const StudentPortal = () => {
     return formatted;
   };
 
+  // While data loads show a skeleton placeholder.
   if (loading) {
     return (
       <div className="p-6">
@@ -175,7 +201,7 @@ export const StudentPortal = () => {
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
-      {/* Student Banner */}
+      {/* Student Banner - identity + overall attendance badge */}
       <div className="bg-primary text-on-primary p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
         <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex items-center gap-5">
@@ -243,18 +269,6 @@ export const StudentPortal = () => {
         </button>
 
         <button
-          onClick={() => setActiveTab("fees")}
-          className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
-            activeTab === "fees"
-              ? "bg-primary text-on-primary shadow-sm"
-              : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
-          }`}
-        >
-          <span className="material-symbols-outlined text-base">payments</span>
-          Fee Status
-        </button>
-
-        <button
           onClick={() => setActiveTab("exams")}
           className={`px-4 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
             activeTab === "exams"
@@ -282,7 +296,7 @@ export const StudentPortal = () => {
       {/* TAB 1: OVERVIEW */}
       {activeTab === "overview" && (
         <div className="space-y-6">
-          {/* Quick Metrics */}
+          {/* Quick Metrics - four summary cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/30 shadow-sm">
               <span className="text-[11px] font-bold text-on-surface-variant uppercase">Overall Attendance</span>
@@ -433,74 +447,28 @@ export const StudentPortal = () => {
             </div>
           </div>
 
-          {/* Fee & Exam Overview Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Fee Card */}
-            <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-base font-bold text-on-surface">Tuition Fee Status</h2>
-                  <p className="text-xs text-on-surface-variant">Current semester fees</p>
-                </div>
-                <span className="material-symbols-outlined text-primary text-2xl">payments</span>
-              </div>
-
-              <div className="space-y-3">
-                {fees.length === 0 ? (
-                  <p className="text-xs text-on-surface-variant py-4 text-center">No fee dues on record</p>
-                ) : (
-                  fees.map((fee) => {
-                    const balance = fee.totalAmount - fee.paidAmount;
-                    return (
-                      <div key={fee._id} className="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="font-bold text-xs text-on-surface">Semester {fee.semester} Fee</span>
-                          <Badge status={fee.status} />
-                        </div>
-                        <div className="grid grid-cols-3 gap-2 text-xs">
-                          <div>
-                            <p className="text-on-surface-variant font-medium">Total</p>
-                            <p className="font-bold text-on-surface">₹{fee.totalAmount.toLocaleString()}</p>
-                          </div>
-                          <div>
-                            <p className="text-on-surface-variant font-medium">Paid</p>
-                            <p className="font-bold text-emerald-600">₹{fee.paidAmount.toLocaleString()}</p>
-                          </div>
-                          <div>
-                            <p className="text-on-surface-variant font-medium">Balance</p>
-                            <p className="font-bold text-rose-600">₹{balance.toLocaleString()}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })
-                )}
-              </div>
+          {/* Announcements */}
+          <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-base font-bold text-on-surface">Announcements</h2>
+              <span className="material-symbols-outlined text-primary text-2xl">campaign</span>
             </div>
-
-            {/* Announcements */}
-            <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="text-base font-bold text-on-surface">Announcements</h2>
-                <span className="material-symbols-outlined text-primary text-2xl">campaign</span>
-              </div>
-              <div className="space-y-3">
-                {notices.length === 0 ? (
-                  <p className="text-xs text-on-surface-variant py-4 text-center">No active announcements</p>
-                ) : (
-                  notices.slice(0, 3).map((n) => (
-                    <div key={n._id} className="p-3 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-1">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-xs font-bold text-on-surface">{n.title}</h4>
-                        <span className="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold rounded-full">
-                          {n.category}
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-on-surface-variant line-clamp-2">{n.description}</p>
+            <div className="space-y-3">
+              {notices.length === 0 ? (
+                <p className="text-xs text-on-surface-variant py-4 text-center">No active announcements</p>
+              ) : (
+                notices.slice(0, 3).map((n) => (
+                  <div key={n._id} className="p-3 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-xs font-bold text-on-surface">{n.title}</h4>
+                      <span className="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold rounded-full">
+                        {n.category}
+                      </span>
                     </div>
-                  ))
-                )}
-              </div>
+                    <p className="text-[11px] text-on-surface-variant line-clamp-2">{n.description}</p>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -655,6 +623,7 @@ export const StudentPortal = () => {
                 </p>
               </div>
             ) : (
+              /* One card per day, newest first */
               groupedByDate.map(({ dateKey, records }) => {
                 const dayPresent = records.filter((r) => r.status === "present").length;
                 const dayTotal = records.length;
@@ -761,76 +730,11 @@ export const StudentPortal = () => {
         </div>
       )}
 
-      {/* TAB 3: FEES */}
-      {activeTab === "fees" && (
-        <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-base font-bold text-on-surface">Tuition Fee Details</h2>
-              <p className="text-xs text-on-surface-variant">Fee invoices, dues and official receipt downloads</p>
-            </div>
-            <span className="material-symbols-outlined text-primary text-2xl">payments</span>
-          </div>
-
-          <div className="space-y-4">
-            {fees.length === 0 ? (
-              <p className="text-xs text-on-surface-variant py-8 text-center">No fee dues recorded</p>
-            ) : (
-              fees.map((fee) => {
-                const balance = fee.totalAmount - fee.paidAmount;
-                return (
-                  <div key={fee._id} className="p-5 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-bold text-sm text-on-surface">Semester {fee.semester} Tuition Fee</h4>
-                        <p className="text-xs text-on-surface-variant">Due Date: {new Date(fee.dueDate).toLocaleDateString()}</p>
-                      </div>
-                      <Badge status={fee.status} />
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 text-xs bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/20">
-                      <div>
-                        <p className="text-on-surface-variant font-medium">Total Payable</p>
-                        <p className="text-base font-black text-on-surface">₹{fee.totalAmount.toLocaleString()}</p>
-                      </div>
-                      <div>
-                        <p className="text-on-surface-variant font-medium">Paid So Far</p>
-                        <p className="text-base font-black text-emerald-600">₹{fee.paidAmount.toLocaleString()}</p>
-                      </div>
-                      <div>
-                        <p className="text-on-surface-variant font-medium">Pending Balance</p>
-                        <p className="text-base font-black text-rose-600">₹{balance.toLocaleString()}</p>
-                      </div>
-                    </div>
-
-                    {fee.paymentHistory && fee.paymentHistory.length > 0 && (
-                      <div className="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
-                        <span className="text-xs text-on-surface-variant">
-                          Last Payment: {fee.paymentHistory[fee.paymentHistory.length - 1].receiptNo} (₹{fee.paymentHistory[fee.paymentHistory.length - 1].amount.toLocaleString()})
-                        </span>
-                        <a
-                          href={feeAPI.getReceiptUrl(fee._id, fee.paymentHistory[0].receiptNo)}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-on-primary rounded-xl text-xs font-bold shadow hover:bg-primary-container"
-                        >
-                          <span className="material-symbols-outlined text-sm">receipt</span>
-                          Download Receipt
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                );
-              })
-            )}
-          </div>
-        </div>
-      )}
-
       {/* TAB 4: EXAMS */}
       {activeTab === "exams" && (
         <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
           <h2 className="text-base font-bold text-on-surface">Upcoming Exams & Timetable</h2>
+          {/* One row per scheduled exam */}
           <div className="space-y-3">
             {exams.length === 0 ? (
               <p className="text-xs text-on-surface-variant py-8 text-center">No exams scheduled for your semester</p>
@@ -855,6 +759,7 @@ export const StudentPortal = () => {
       {activeTab === "notices" && (
         <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/30 shadow-sm space-y-4">
           <h2 className="text-base font-bold text-on-surface">Announcements & Campus Circulars</h2>
+          {/* Full list of student notices */}
           <div className="space-y-3">
             {notices.length === 0 ? (
               <p className="text-xs text-on-surface-variant py-8 text-center">No notices published</p>

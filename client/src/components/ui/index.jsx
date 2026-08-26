@@ -1,6 +1,14 @@
-﻿import React from "react";
+﻿// ============================================================
+// index.jsx (shared UI kit)
+// Small reusable building blocks used by many pages:
+// StatsCard (number card), Badge (status pill), Modal
+// (popup dialog) and TableSkeleton (loading placeholder).
+// ============================================================
+import React from "react";
 
+// Card showing one key number with an icon and optional trend badge.
 export const StatsCard = ({ title, value, icon, color = "primary", change, subtitle }) => {
+  // Icon background/text color depends on the "color" prop.
   const colorMap = {
     primary: "bg-primary/10 text-primary",
     secondary: "bg-secondary-container text-on-secondary-container",
@@ -16,6 +24,7 @@ export const StatsCard = ({ title, value, icon, color = "primary", change, subti
         <div className={`p-3 rounded-2xl ${colorMap[color] || colorMap.primary}`}>
           <span className="material-symbols-outlined text-2xl">{icon}</span>
         </div>
+        {/* Optional green/red trend badge (e.g. "+8.4%") */}
         {change && (
           <span className={`text-xs font-bold px-2 py-1 rounded-full ${
             change.startsWith("+") ? "bg-emerald-100 text-emerald-700" : "bg-rose-100 text-rose-700"
@@ -33,23 +42,23 @@ export const StatsCard = ({ title, value, icon, color = "primary", change, subti
   );
 };
 
+// Colored pill that displays a status word (active, present, absent...).
 export const Badge = ({ status, variant }) => {
+  // Accept either prop name and lowercase it for lookup.
   const norm = (status || variant || "").toLowerCase();
-  
+
+  // Status -> tailwind color classes.
   const styles = {
     active: "bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300",
-    paid: "bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300",
     present: "bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300",
     scheduled: "bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-950 dark:text-blue-300",
     completed: "bg-indigo-100 text-indigo-800 border-indigo-300 dark:bg-indigo-950 dark:text-indigo-300",
-    pending: "bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300",
-    partial: "bg-purple-100 text-purple-800 border-purple-300 dark:bg-purple-950 dark:text-purple-300",
     leave: "bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300",
     absent: "bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950 dark:text-rose-300",
-    overdue: "bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950 dark:text-rose-300",
     inactive: "bg-gray-100 text-gray-800 border-gray-300 dark:bg-gray-800 dark:text-gray-300",
   };
 
+  // Gray fallback for unknown statuses.
   const currentStyle = styles[norm] || "bg-gray-100 text-gray-800 border-gray-300";
 
   return (
@@ -59,11 +68,14 @@ export const Badge = ({ status, variant }) => {
   );
 };
 
+// Popup dialog with a dimmed backdrop; closes on backdrop click or X button.
 export const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-xl" }) => {
+  // Render nothing while closed.
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Clickable dark backdrop */}
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onClick={onClose} />
       <div className={`relative bg-surface-container-lowest rounded-3xl shadow-2xl border border-outline-variant/40 w-full ${maxWidth} overflow-hidden z-10 animate-in zoom-in-95 duration-200`}>
         <div className="px-6 py-4 border-b border-outline-variant/20 flex items-center justify-between">
@@ -81,9 +93,11 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-xl" 
   );
 };
 
+// Gray pulsing blocks shown as a placeholder while tables load.
 export const TableSkeleton = ({ rows = 5, cols = 5 }) => {
   return (
     <div className="animate-pulse space-y-4">
+      {/* Fake header bar + rows of gray rectangles */}
       <div className="h-10 bg-surface-container rounded-xl w-full" />
       {[...Array(rows)].map((_, i) => (
         <div key={i} className="flex gap-4">

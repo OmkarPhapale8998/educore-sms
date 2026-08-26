@@ -1,9 +1,16 @@
-﻿import React, { useState, useEffect } from "react";
+﻿// ============================================================
+// StudentsPage.jsx
+// Students directory: a searchable, filterable, paginated
+// table of every student with an Excel export button and a
+// delete confirmation dialog.
+// ============================================================
+import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { studentAPI, reportAPI } from "../../api";
 import { Badge, TableSkeleton, Modal } from "../../components/ui";
 import toast from "react-hot-toast";
 
+// Options for the department filter dropdown.
 const DEPARTMENTS = [
   "All Departments",
   "Computer Science",
@@ -15,9 +22,13 @@ const DEPARTMENTS = [
 ];
 
 export const StudentsPage = () => {
+  // Reads/writes ?search=... in the URL so filters survive a refresh.
   const [searchParams, setSearchParams] = useSearchParams();
+  // Students shown in the table (one page worth).
   const [students, setStudents] = useState([]);
+  // Page info returned by the API (total count, current page, last page).
   const [pagination, setPagination] = useState({ total: 0, page: 1, pages: 1 });
+  // True while the list is being fetched.
   const [loading, setLoading] = useState(true);
 
   // Filters
@@ -25,16 +36,21 @@ export const StudentsPage = () => {
   const [department, setDepartment] = useState(searchParams.get("department") || "");
   const [semester, setSemester] = useState(searchParams.get("semester") || "");
   const [status, setStatus] = useState(searchParams.get("status") || "");
+  // Current page number of the table.
   const [page, setPage] = useState(1);
 
   // Delete modal state
+  // Student picked for deletion - when set, the confirm dialog opens.
   const [studentToDelete, setStudentToDelete] = useState(null);
+  // Prevents double-clicks while the delete request runs.
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Re-fetches the student list whenever filters or page change.
   useEffect(() => {
     fetchStudents();
   }, [department, semester, status, page, searchParams]);
 
+  // Fetches one page of students from the API using the active filters.
   const fetchStudents = async () => {
     setLoading(true);
     try {
@@ -59,12 +75,14 @@ export const StudentsPage = () => {
     }
   };
 
+  // Applies the search text to the URL and jumps back to page 1.
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchParams({ search, ...(department ? { department } : {}), ...(semester ? { semester } : {}) });
     setPage(1);
   };
 
+  // Called by the confirm dialog: deletes the student then refreshes the table.
   const handleDelete = async () => {
     if (!studentToDelete) return;
     setIsDeleting(true);
@@ -165,6 +183,7 @@ export const StudentsPage = () => {
 
       {/* Table Container */}
       <div className="bg-surface-container-lowest rounded-3xl border border-outline-variant/30 shadow-sm overflow-hidden">
+        {/* Loading skeleton / empty state / table, depending on fetch result */}
         {loading ? (
           <div className="p-6">
             <TableSkeleton rows={6} cols={6} />
@@ -177,6 +196,7 @@ export const StudentsPage = () => {
           </div>
         ) : (
           <div className="overflow-x-auto">
+            {/* One row per student */}
             <table className="w-full text-left text-xs">
               <thead className="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant uppercase font-bold text-[10px] tracking-wider">
                 <tr>
