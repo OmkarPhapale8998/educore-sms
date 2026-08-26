@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "educore-sms-server",
   "version": "1.0.0",
   "description": "EduCore Student Management System - Backend API",
@@ -13,14 +13,14 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
     "express": "^4.19.2",
     "express-validator": "^7.1.0",
-    "exceljs": "^4.4.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.14",
-    "pdfkit": "^0.15.0"
+    "pdfkit": "^0.15.0",
+    "pg": "^8.23.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"
