@@ -1,6 +1,12 @@
-﻿const nodemailer = require("nodemailer");
+﻿// ============================================================
+// utils/emailSender.js
+// Sends emails (e.g. password reset links) through SMTP using
+// nodemailer. Login details come from the .env file.
+// ============================================================
+const nodemailer = require("nodemailer");
 
 const sendEmail = async ({ to, subject, html, text }) => {
+  // Create the mail connection to the SMTP server from env settings
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: parseInt(process.env.EMAIL_PORT) || 2525,
@@ -15,11 +21,12 @@ const sendEmail = async ({ to, subject, html, text }) => {
     to,
     subject,
     html,
+    // Fallback plain-text version: strip HTML tags so any mail client can read it
     text: text || html.replace(/<[^>]*>/g, "")
   };
 
   const info = await transporter.sendMail(mailOptions);
-  console.log(`Email sent: ${info.messageId}`);
+  console.log(`Email sent: ${info.messageId}`); // log for debugging
   return info;
 };
 
