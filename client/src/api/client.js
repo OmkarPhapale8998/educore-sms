@@ -1,5 +1,13 @@
-﻿import axios from "axios";
+﻿// ============================================================
+// client.js
+// Creates ONE shared axios instance used by every API call.
+// It attaches the saved login token to each request and, when
+// a request fails with 401 (session expired), clears the
+// session and sends the user back to /login.
+// ============================================================
+import axios from "axios";
 
+// Central axios instance: base URL comes from .env, cookies are sent along.
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
   withCredentials: true,
@@ -32,4 +40,9 @@ API.interceptors.response.use(
   }
 );
 
+// Server address WITHOUT the "/api" ending - used to build direct
+// links to uploaded files (documents, notice attachments, etc).
+export const API_ORIGIN = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/api\/?$/, "");
+
 export default API;
+
