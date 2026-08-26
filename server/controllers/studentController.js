@@ -1,7 +1,76 @@
-﻿const Student = require("../models/Student");
-const User = require("../models/User");
-const Fee = require("../models/Fee");
-const Attendance = require("../models/Attendance");
+﻿// ============================================================
+// controllers/studentController.js
+// CRUD logic for the Students module (list, view, create,
+// update, delete, upload documents, attendance summary).
+// Every student has a login row in "users" plus a profile row
+// in "students" linked by user_id.
+// ============================================================
+const { query } = require("../config/db");
+const bcrypt = require("bcryptjs");
+
+// Shared SQL column list: student fields joined with their user account.
+// Aliases turn snake_case DB names into camelCase for the frontend.
+const STUDENT_SELECT = `
+  s.id AS "_id",
+  u.id AS "userId",
+  u.name AS "user_name",
+  u.email AS "user_email",
+  u.phone AS "user_phone",
+  u.photo AS "user_photo",
+  s.roll_no AS "rollNo",
+  s.department,
+  s.semester,
+  s.admission_year AS "admissionYear",
+  s.guardian_name AS "guardianName",
+  s.guardian_phone AS "guardianPhone",
+  s.address,
+  s.date_of_birth AS "dateOfBirth",
+  s.gender,
+  s.category,
+  s.status,
+  s.created_at AS "createdAt",
+  s.updated_at AS "updatedAt"
+`;
+
+const STUDENT_FROM = `FROM students s JOIN users u ON u.id = s.user_id`;
+
+// Assemble a student object matching the legacy Mongoose populated shape
+// Turns one flat SQL row into the nested JSON the frontend expects
+// (user details nested under userId).
+const shapeStudent = (row, documents = []) => ({
+  _id: row._id,
+  userId: {
+    _id: row.userId,
+    name: row.user_name,
+    email: row.user_email,
+    phone: row.user_phone,
+    photo: row.user_photo
+  },
+  rollNo: row.rollNo,
+  department: row.department,
+  semester: row.semester,
+  admissionYear: row.admissionYear,
+  guardianName: row.guardianName,
+  guardianPhone: row.guardianPhone,
+  address: row.address,
+  dateOfBirth: row.dateOfBirth,
+  gender: row.gender,
+  category: row.category,
+  status: row.status,
+  createdAt: row.createdAt,
+  updatedAt: row.updatedAt,
+  documents
+});
+
+// Fetch all uploaded documents belonging to one student
+const getDocuments = async (studentId) => {
+  const { rows } = await query(
+    `SELECT id AS "_id", name, path, uploaded_at AS "uploadedAt"
+     FROM student_documents WHERE student_id = $1 ORDER BY uploaded_at ASC`,
+    [studentId]
+  );
+  return rows;
+};
 
 // @desc   Get all students with filters, search, pagination
 // @route  GET /api/students
@@ -9,38 +78,46 @@ const Attendance = require("../models/Attendance");
 exports.getStudents = async (req, res, next) => {
   try {
     const { department, semester, search, status, page = 1, limit = 20, admissionYear } = req.query;
-    const query = {};
+    // Build the SQL dynamically: each filter adds a condition + a $n placeholder
+    const params = [];
+    const where = [];
 
-    if (department) query.department = department;
-    if (semester) query.semester = parseInt(semester);
-    if (status) query.status = status;
-    if (admissionYear) query.admissionYear = parseInt(admissionYear);
+    if (department) { params.push(department); where.push(`s.department = $${params.length}`); }
+    if (semester) { params.push(parseInt(semester)); where.push(`s.semester = $${params.length}`); }
+    if (status) { params.push(status); where.push(`s.status = $${params.length}`); }
+    if (admissionYear) { params.push(parseInt(admissionYear)); where.push(`s.admission_year = $${params.length}`); }
 
-    let studentIds = null;
+    // Search matches name, email or roll number (ILIKE = case-insensitive)
     if (search) {
-      const users = await User.find({
-        $or: [
-          { name: { $regex: search, $options: "i" } },
-          { email: { $regex: search, $options: "i" } }
-        ]
-      }).select("_id");
-      const userIdList = users.map(u => u._id);
-      query.$or = [
-        { userId: { $in: userIdList } },
-        { rollNo: { $regex: search, $options: "i" } }
-      ];
+      const like = `%${search}%`;
+      params.push(like);
+      const n = params.length;
+      where.push(`(u.name ILIKE $${n} OR u.email ILIKE $${n} OR s.roll_no ILIKE $${n})`);
     }
 
-    const total = await Student.countDocuments(query);
-    const students = await Student.find(query)
-      .populate("userId", "name email phone photo")
-      .sort({ createdAt: -1 })
-      .skip((parseInt(page) - 1) * parseInt(limit))
-      .limit(parseInt(limit));
+    // No filters -> no WHERE clause at all
+    const whereSql = where.length ? `WHERE ${where.join(" AND ")}` : "";
+
+    // First query just counts total matching rows (needed for pagination info)
+    const countRes = await query(`SELECT COUNT(*)::int AS total FROM students s JOIN users u ON u.id = s.user_id ${whereSql}`, params);
+    const total = countRes.rows[0].total;
+
+    // Add LIMIT/OFFSET placeholders to fetch only one page of results
+    params.push(parseInt(limit));
+    const limitN = params.length;
+    params.push((parseInt(page) - 1) * parseInt(limit));
+    const offsetN = params.length;
+
+    const { rows } = await query(
+      `SELECT ${STUDENT_SELECT} ${STUDENT_FROM} ${whereSql}
+       ORDER BY s.created_at DESC
+       LIMIT $${limitN} OFFSET $${offsetN}`,
+      params
+    );
 
     res.json({
       success: true,
-      data: students,
+      data: rows.map((r) => shapeStudent(r)),
       pagination: {
         total,
         page: parseInt(page),
@@ -56,20 +133,23 @@ exports.getStudents = async (req, res, next) => {
 // @access Admin, Faculty, Student (own)
 exports.getStudent = async (req, res, next) => {
   try {
-    const student = await Student.findById(req.params.id)
-      .populate("userId", "name email phone photo");
+    const { rows } = await query(
+      `SELECT ${STUDENT_SELECT} ${STUDENT_FROM} WHERE s.id = $1`,
+      [req.params.id]
+    );
 
-    if (!student) return res.status(404).json({ success: false, message: "Student not found" });
+    if (rows.length === 0) return res.status(404).json({ success: false, message: "Student not found" });
 
     // Students can only view their own profile
     if (req.user.role === "student") {
-      const myStudent = await Student.findOne({ userId: req.user._id });
-      if (!myStudent || myStudent._id.toString() !== req.params.id) {
+      const mine = await query("SELECT id FROM students WHERE user_id = $1", [req.user._id]);
+      if (mine.rows.length === 0 || mine.rows[0].id !== req.params.id) {
         return res.status(403).json({ success: false, message: "Access denied" });
       }
     }
 
-    res.json({ success: true, data: student });
+    const documents = await getDocuments(req.params.id);
+    res.json({ success: true, data: shapeStudent(rows[0], documents) });
   } catch (err) { next(err); }
 };
 
@@ -84,23 +164,32 @@ exports.createStudent = async (req, res, next) => {
       guardianName, guardianPhone, address, dateOfBirth, gender, category
     } = req.body;
 
-    // Create User account
-    const user = await User.create({
-      name, email, phone,
-      password: password || "Student@123",
-      role: "student"
-    });
+    const cleanEmail = (email || "").trim().toLowerCase();
+    // Default password if admin didn't specify one
+    const hashed = await bcrypt.hash(password || "Student@123", 12);
 
-    // Create Student profile
-    const student = await Student.create({
-      userId: user._id,
-      rollNo, department, semester: parseInt(semester),
-      admissionYear: parseInt(admissionYear),
-      guardianName, guardianPhone, address, dateOfBirth, gender, category
-    });
+    // Insert login account first so we get its id for the profile row
+    const userRes = await query(
+      `INSERT INTO users (name, email, password, role, phone)
+       VALUES ($1, $2, $3, 'student', $4) RETURNING id`,
+      [(name || "").trim(), cleanEmail, hashed, phone || ""]
+    );
+    const userId = userRes.rows[0].id;
 
-    const populated = await Student.findById(student._id).populate("userId", "name email phone photo");
-    res.status(201).json({ success: true, message: "Student created successfully", data: populated });
+    const studentRes = await query(
+      `INSERT INTO students (user_id, roll_no, department, semester, admission_year, guardian_name, guardian_phone, address, date_of_birth, gender, category)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+       RETURNING id`,
+      [userId, rollNo, department, parseInt(semester), parseInt(admissionYear), guardianName || "", guardianPhone || "", address || "", dateOfBirth || null, gender || null, category || null]
+    );
+
+    // Re-select with joins so the response looks like getStudent output
+    const { rows } = await query(
+      `SELECT ${STUDENT_SELECT} ${STUDENT_FROM} WHERE s.id = $1`,
+      [studentRes.rows[0].id]
+    );
+
+    res.status(201).json({ success: true, message: "Student created successfully", data: shapeStudent(rows[0], []) });
   } catch (err) { next(err); }
 };
 
@@ -112,22 +201,42 @@ exports.updateStudent = async (req, res, next) => {
     const { name, email, phone, rollNo, department, semester,
             guardianName, guardianPhone, address, status } = req.body;
 
-    const student = await Student.findById(req.params.id);
-    if (!student) return res.status(404).json({ success: false, message: "Student not found" });
+    // A student's data lives in two tables; find their user id first
+    const existing = await query("SELECT user_id FROM students WHERE id = $1", [req.params.id]);
+    if (existing.rows.length === 0) return res.status(404).json({ success: false, message: "Student not found" });
+    const userId = existing.rows[0].user_id;
 
-    // Update user info
-    if (name || email || phone) {
-      await User.findByIdAndUpdate(student.userId, { name, email, phone });
+    // Update the users table only when name/email/phone were sent
+    if (name || email || phone !== undefined) {
+      await query(
+        `UPDATE users SET name = COALESCE($2, name), email = COALESCE($3, email), phone = COALESCE($4, phone)
+         WHERE id = $1`,
+        [userId, name || null, email ? email.toLowerCase() : null, phone !== undefined && phone !== "" ? phone : null]
+      );
     }
 
-    // Update student info
-    const updatedStudent = await Student.findByIdAndUpdate(
-      req.params.id,
-      { rollNo, department, semester, guardianName, guardianPhone, address, status },
-      { new: true, runValidators: true }
-    ).populate("userId", "name email phone photo");
+    // COALESCE keeps old values for fields that weren't sent
+    await query(
+      `UPDATE students SET
+         roll_no = COALESCE($2, roll_no),
+         department = COALESCE($3, department),
+         semester = COALESCE($4, semester),
+         guardian_name = COALESCE($5, guardian_name),
+         guardian_phone = COALESCE($6, guardian_phone),
+         address = COALESCE($7, address),
+         status = COALESCE($8, status)
+       WHERE id = $1`,
+      [req.params.id, rollNo || null, department || null, semester ? parseInt(semester) : null,
+       guardianName ?? null, guardianPhone ?? null, address ?? null, status || null]
+    );
 
-    res.json({ success: true, message: "Student updated", data: updatedStudent });
+    // Return the fresh combined record
+    const { rows } = await query(
+      `SELECT ${STUDENT_SELECT} ${STUDENT_FROM} WHERE s.id = $1`,
+      [req.params.id]
+    );
+
+    res.json({ success: true, message: "Student updated", data: shapeStudent(rows[0]) });
   } catch (err) { next(err); }
 };
 
@@ -136,11 +245,11 @@ exports.updateStudent = async (req, res, next) => {
 // @access Admin only
 exports.deleteStudent = async (req, res, next) => {
   try {
-    const student = await Student.findById(req.params.id);
-    if (!student) return res.status(404).json({ success: false, message: "Student not found" });
+    const existing = await query("SELECT user_id FROM students WHERE id = $1", [req.params.id]);
+    if (existing.rows.length === 0) return res.status(404).json({ success: false, message: "Student not found" });
 
-    await User.findByIdAndDelete(student.userId);
-    await Student.findByIdAndDelete(req.params.id);
+    // Deleting the user cascades to student profile + attendance/fees/marks/documents
+    await query("DELETE FROM users WHERE id = $1", [existing.rows[0].user_id]);
 
     res.json({ success: true, message: "Student deleted" });
   } catch (err) { next(err); }
@@ -151,15 +260,26 @@ exports.deleteStudent = async (req, res, next) => {
 // @access Admin only
 exports.uploadDocument = async (req, res, next) => {
   try {
+    // multer put the file on req.file; nothing there means upload failed
     if (!req.file) return res.status(400).json({ success: false, message: "No file uploaded" });
 
-    const student = await Student.findByIdAndUpdate(
-      req.params.id,
-      { $push: { documents: { name: req.body.name || req.file.originalname, path: req.file.path.replace(/\\/g, "/") } } },
-      { new: true }
+    const exists = await query("SELECT id FROM students WHERE id = $1", [req.params.id]);
+    if (exists.rows.length === 0) return res.status(404).json({ success: false, message: "Student not found" });
+
+    // Save file metadata (not the bytes) in the database
+    await query(
+      `INSERT INTO student_documents (student_id, name, path)
+       VALUES ($1, $2, $3)`,
+      [req.params.id, req.body.name || req.file.originalname, req.file.path.replace(/\\/g, "/")]
     );
 
-    res.json({ success: true, message: "Document uploaded", data: student });
+    const documents = await getDocuments(req.params.id);
+    const { rows } = await query(
+      `SELECT ${STUDENT_SELECT} ${STUDENT_FROM} WHERE s.id = $1`,
+      [req.params.id]
+    );
+
+    res.json({ success: true, message: "Document uploaded", data: shapeStudent(rows[0], documents) });
   } catch (err) { next(err); }
 };
 
@@ -168,24 +288,20 @@ exports.uploadDocument = async (req, res, next) => {
 // @access Admin, Faculty, Student (own)
 exports.getAttendanceSummary = async (req, res, next) => {
   try {
-    const summary = await Attendance.aggregate([
-      { $match: { student: require("mongoose").Types.ObjectId(req.params.id) } },
-      { $group: {
-        _id: "$course",
-        total: { $sum: 1 },
-        present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } }
-      }},
-      { $lookup: { from: "courses", localField: "_id", foreignField: "_id", as: "course" } },
-      { $unwind: "$course" },
-      { $project: {
-        courseCode: "$course.code",
-        courseName: "$course.name",
-        total: 1,
-        present: 1,
-        percentage: { $multiply: [{ $divide: ["$present", "$total"] }, 100] }
-      }}
-    ]);
+    // GROUP BY course -> one summary row per subject:
+    // count all classes, count 'present' ones, then compute percentage
+    const { rows } = await query(
+      `SELECT c.code AS "courseCode", c.name AS "courseName",
+              COUNT(*)::int AS total,
+              SUM(CASE WHEN a.status = 'present' THEN 1 ELSE 0 END)::int AS present,
+              ROUND(SUM(CASE WHEN a.status = 'present' THEN 1 ELSE 0 END)::numeric * 100 / COUNT(*))::float8 AS percentage
+       FROM attendances a
+       JOIN courses c ON c.id = a.course_id
+       WHERE a.student_id = $1
+       GROUP BY c.code, c.name`,
+      [req.params.id]
+    );
 
-    res.json({ success: true, data: summary });
+    res.json({ success: true, data: rows });
   } catch (err) { next(err); }
 };
