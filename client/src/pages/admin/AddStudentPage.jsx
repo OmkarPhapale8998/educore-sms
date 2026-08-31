@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // AddStudentPage.jsx
 // New-student enrollment wizard with 3 steps: (1) personal
 // details, (2) academic profile, (3) guardian & address.
@@ -288,7 +288,7 @@ export const AddStudentPage = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant/40 rounded-xl text-xs text-on-surface focus:ring-2 focus:ring-primary"
                 >
-                  {[1,2,3,4,5,6,7,8].map((s) => (
+                  {[1,2,3,4,5,6].map((s) => (
                     <option key={s} value={s}>Semester {s}</option>
                   ))}
                 </select>

@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // middleware/errorHandler.js
 // One central place that catches every error thrown by routes
 // and turns database/JWT error codes into friendly messages.
@@ -9,34 +9,36 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = err.statusCode || 500;
   let message = err.message || "Server Error";
 
-  // PostgreSQL error codes -> readable messages for the client
+  // MongoDB / Mongoose error codes -> readable messages for the client
 
-  if (err.code === "23505") { // unique constraint violated (e.g. duplicate email)
+  if (err.code === 11000) {
+    // Duplicate key error (e.g. duplicate email or roll_no)
     statusCode = 400;
-    message = "Duplicate field value entered";
+    const field = Object.keys(err.keyValue || {})[0] || "field";
+    message = `Duplicate value: '${err.keyValue?.[field]}' is already in use for '${field}'`;
   }
 
-  if (err.code === "23503") { // foreign key violated (related row missing)
+  if (err.name === "ValidationError") {
+    // Mongoose schema validation failed
     statusCode = 400;
-    message = "Referenced record does not exist";
+    const messages = Object.values(err.errors).map((e) => e.message);
+    message = messages.join(". ");
   }
 
-  if (err.code === "23514" || err.code === "22P02") { // bad value / bad uuid format
+  if (err.name === "CastError") {
+    // Invalid ObjectId or wrong type cast (e.g. /students/not-an-id)
     statusCode = 400;
-    message = "Invalid data format";
+    message = `Invalid value for field '${err.path}': ${err.value}`;
   }
 
-  if (err.code === "28P01" || err.code === "42501") { // DB login or permission failure
-    statusCode = 500;
-    message = "Database authentication/permission error";
-  }
-
-  if (err.name === "JsonWebTokenError") { // malformed JWT
+  if (err.name === "JsonWebTokenError") {
+    // Malformed JWT
     statusCode = 401;
     message = "Invalid token";
   }
 
-  if (err.name === "TokenExpiredError") { // JWT past its expiry
+  if (err.name === "TokenExpiredError") {
+    // JWT past its expiry
     statusCode = 401;
     message = "Token expired";
   }

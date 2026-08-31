@@ -352,7 +352,7 @@ export const RegisterPage = () => {
                       onChange={(e) => setSemester(e.target.value)}
                       className="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-xl text-xs font-semibold text-on-surface focus:ring-2 focus:ring-primary"
                     >
-                      {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
+                      {[1, 2, 3, 4, 5, 6].map((s) => (
                         <option key={s} value={s}>Semester {s}</option>
                       ))}
                     </select>

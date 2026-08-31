@@ -16,7 +16,7 @@ const errorHandler = require("./middleware/errorHandler");
 // Load variables from the .env file into process.env
 dotenv.config();
 
-// Connect to PostgreSQL (Supabase) before handling requests
+// Connect to MongoDB before handling requests
 connectDB();
 
 const app = express();

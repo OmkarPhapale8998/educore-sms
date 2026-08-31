@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // ExamsPage.jsx
 // Exams & results hub: a filterable table of scheduled exams,
 // a "Schedule Examination" modal, and a bulk "Enter Marks"
@@ -366,7 +366,7 @@ export const ExamsPage = () => {
                 onChange={(e) => setExamForm({ ...examForm, semester: e.target.value })}
                 className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary"
               >
-                {[1,2,3,4,5,6,7,8].map((s) => (
+                {[1,2,3,4,5,6].map((s) => (
                   <option key={s} value={s}>Semester {s}</option>
                 ))}
               </select>

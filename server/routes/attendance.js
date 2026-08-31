@@ -1,79 +1,71 @@
-﻿// ============================================================
-// routes/attendance.js
-// All REST endpoints for the Attendance module: mark attendance
-// for a whole class, view records with filters, per-student
-// percentages, and today's dashboard summary.
-// Every endpoint requires login; marking is admin/faculty only.
-// ============================================================
 const express = require("express");
 const router = express.Router();
 const { protect, authorize } = require("../middleware/auth");
-const { query } = require("../config/db");
+const Attendance = require("../models/Attendance");
+const Faculty = require("../models/Faculty");
+const Student = require("../models/Student");
+const Notification = require("../models/Notification");
+const mongoose = require("mongoose");
 
 router.use(protect);
 
-// POST /api/attendance/mark — bulk mark attendance
 router.post("/mark", authorize("admin", "faculty"), async (req, res, next) => {
   try {
     const { courseId, date, records, department, semester } = req.body;
 
-    // If a faculty is marking, remember which faculty it was
     let facultyId = null;
     if (req.user.role === "faculty") {
-      const fac = await query("SELECT id FROM faculties WHERE user_id = $1", [req.user._id]);
-      if (fac.rows.length > 0) facultyId = fac.rows[0].id;
+      const fac = await Faculty.findOne({ user_id: req.user._id });
+      if (fac) facultyId = fac._id;
     }
 
-    // UPSERT: if the student already has attendance for this
-    // course+date, update it; otherwise insert a new row.
+    const dateObj = new Date(date);
+    dateObj.setUTCHours(0,0,0,0);
+
     for (const r of records) {
-      await query(
-        `INSERT INTO attendances (student_id, course_id, marked_by, date, status, department, semester, remarks)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8::text)
-         ON CONFLICT (student_id, course_id, date)
-         DO UPDATE SET
-           status = EXCLUDED.status,
-           remarks = CASE WHEN $8::text IS NULL THEN attendances.remarks ELSE EXCLUDED.remarks END`,
-        [r.studentId, courseId, facultyId, date, r.status, department || null, semester != null ? parseInt(semester) : null, r.remarks ?? null]
+      const updateData = {
+        status: r.status,
+        department: department || undefined,
+        semester: semester != null ? parseInt(semester) : undefined,
+      };
+      if (facultyId) updateData.marked_by = facultyId;
+      if (r.remarks !== undefined) updateData.remarks = r.remarks;
+
+      await Attendance.findOneAndUpdate(
+        { student_id: r.studentId, course_id: courseId, date: dateObj },
+        { $set: updateData },
+        { upsert: true, new: true }
       );
     }
 
-    // Check low attendance for each student and create notifications
     for (const r of records) {
-      // Count total classes and present classes for this student+course
-      const stats = await query(
-        `SELECT COUNT(*)::int AS total,
-                SUM(CASE WHEN status = 'present' THEN 1 ELSE 0 END)::int AS present
-         FROM attendances
-         WHERE student_id = $1 AND course_id = $2`,
-        [r.studentId, courseId]
-      );
-      if (stats.rows.length === 0 || stats.rows[0].total === 0) continue; // no data yet
-      const { total, present } = stats.rows[0];
+      const summary = await Attendance.aggregate([
+        { $match: { student_id: new mongoose.Types.ObjectId(r.studentId), course_id: new mongoose.Types.ObjectId(courseId) } },
+        { 
+          $group: {
+            _id: null,
+            total: { $sum: 1 },
+            present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } }
+          }
+        }
+      ]);
+
+      if (summary.length === 0 || summary[0].total === 0) continue;
+      const { total, present } = summary[0];
       const pct = (present / total) * 100;
 
-      // Below 75% (with at least 5 classes recorded) -> warn the student.
-      // Only one alert per student+course: update the existing
-      // notification instead of spamming duplicates.
       if (pct < 75 && total >= 5) {
-        const stu = await query("SELECT user_id FROM students WHERE id = $1", [r.studentId]);
-        if (stu.rows.length > 0) {
-          const recipient = stu.rows[0].user_id;
+        const stu = await Student.findById(r.studentId);
+        if (stu) {
+          const recipient = stu.user_id;
           const title = "Low Attendance Alert";
           const message = `Your attendance has dropped to ${pct.toFixed(1)}% in this subject. Minimum 75% required.`;
-          const upd = await query(
-            `UPDATE notifications SET title = $3, message = $4, is_read = false
-             WHERE recipient = $1 AND type = 'low_attendance' AND related_id = $2`,
-            [recipient, courseId, title, message]
+          
+          await Notification.findOneAndUpdate(
+            { recipient, type: 'low_attendance', related_id: courseId },
+            { $set: { title, message, is_read: false } },
+            { upsert: true }
           );
-          // rowCount 0 means no existing alert -> insert a fresh one
-          if (upd.rowCount === 0) {
-            await query(
-              `INSERT INTO notifications (recipient, type, title, message, related_id, is_read)
-               VALUES ($1, 'low_attendance', $2, $3, $4, false)`,
-              [recipient, title, message, courseId]
-            );
-          }
         }
       }
     }
@@ -82,99 +74,122 @@ router.post("/mark", authorize("admin", "faculty"), async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
-// GET /api/attendance — with filters
-// Optional query params: studentId, courseId, exact date,
-// or month+year (converted to a first-day..last-day range).
 router.get("/", async (req, res, next) => {
   try {
     const { studentId, courseId, month, year, date } = req.query;
-    const params = [];
-    const where = [];
+    
+    const query = {};
+    if (studentId) query.student_id = studentId;
+    if (courseId) query.course_id = courseId;
 
-    if (studentId) { params.push(studentId); where.push(`a.student_id = $${params.length}`); }
-    if (courseId) { params.push(courseId); where.push(`a.course_id = $${params.length}`); }
-
-    // Exact date wins; otherwise filter the whole month given by month+year
     if (date) {
-      params.push(date);
-      where.push(`a.date = $${params.length}`);
+      const d = new Date(date);
+      d.setUTCHours(0,0,0,0);
+      query.date = d;
     } else if (month && year) {
       const m = parseInt(month);
       const y = parseInt(year);
-      const lastDay = new Date(y, m, 0).getDate(); // day 0 of next month = last day of this month
-      params.push(`${y}-${String(m).padStart(2, "0")}-01`);
-      where.push(`a.date >= $${params.length}`);
-      params.push(`${y}-${String(m).padStart(2, "0")}-${String(lastDay).padStart(2, "0")}`);
-      where.push(`a.date <= $${params.length}`);
+      const start = new Date(Date.UTC(y, m - 1, 1));
+      const end = new Date(Date.UTC(y, m, 0, 23, 59, 59));
+      query.date = { $gte: start, $lte: end };
     }
 
-    const whereSql = where.length ? `WHERE ${where.join(" AND ")}` : "";
+    const attendances = await Attendance.find(query)
+      .populate({
+        path: 'student_id',
+        select: 'roll_no user_id',
+        populate: { path: 'user_id', select: 'name' }
+      })
+      .populate('course_id', 'code name')
+      .sort({ date: -1 });
 
-    // JOINs pull in student and course names so the UI can show them directly
-    const { rows } = await query(
-      `SELECT a.id AS "_id", a.status, a.date, a.remarks, a.semester, a.department,
-              s.id AS "studentId", s.roll_no AS "rollNo",
-              u.name AS "studentName",
-              c.id AS "courseId", c.code AS "courseCode", c.name AS "courseName"
-       FROM attendances a
-       JOIN students s ON s.id = a.student_id
-       JOIN users u ON u.id = s.user_id
-       JOIN courses c ON c.id = a.course_id
-       ${whereSql}
-       ORDER BY a.date DESC`,
-      params
-    );
-
-    // Reshape flat rows into nested objects for the frontend
-    const data = rows.map((r) => ({
-      _id: r._id,
-      status: r.status,
-      date: r.date,
-      remarks: r.remarks,
-      semester: r.semester,
-      department: r.department,
-      student: { _id: r.studentId, rollNo: r.rollNo, userId: { name: r.studentName } },
-      course: { _id: r.courseId, code: r.courseCode, name: r.courseName }
-    }));
+    const data = attendances.map(a => {
+      const obj = a.toObject();
+      return {
+        _id: obj._id,
+        status: obj.status,
+        date: obj.date,
+        remarks: obj.remarks,
+        semester: obj.semester,
+        department: obj.department,
+        student: obj.student_id ? {
+          _id: obj.student_id._id,
+          rollNo: obj.student_id.roll_no,
+          userId: { name: obj.student_id.user_id ? obj.student_id.user_id.name : "" }
+        } : null,
+        course: obj.course_id ? {
+          _id: obj.course_id._id,
+          code: obj.course_id.code,
+          name: obj.course_id.name
+        } : null
+      };
+    });
 
     res.json({ success: true, data });
   } catch (err) { next(err); }
 });
 
-// GET /api/attendance/percentage/:studentId — per-subject breakdown
-// GROUP BY course gives one row per subject with present/absent/
-// leave counts and an overall percentage.
 router.get("/percentage/:studentId", async (req, res, next) => {
   try {
-    const { rows } = await query(
-      `SELECT c.code AS "courseCode", c.name AS "courseName",
-              SUM(CASE WHEN a.status = 'present' THEN 1 ELSE 0 END)::int AS present,
-              COUNT(*)::int AS total,
-              SUM(CASE WHEN a.status = 'absent' THEN 1 ELSE 0 END)::int AS absent,
-              SUM(CASE WHEN a.status = 'leave' THEN 1 ELSE 0 END)::int AS leave,
-              ROUND(SUM(CASE WHEN a.status = 'present' THEN 1 ELSE 0 END)::numeric * 100 / COUNT(*), 2)::float8 AS percentage
-       FROM attendances a
-       JOIN courses c ON c.id = a.course_id
-       WHERE a.student_id = $1
-       GROUP BY c.code, c.name`,
-      [req.params.studentId]
-    );
+    const rows = await Attendance.aggregate([
+      { $match: { student_id: new mongoose.Types.ObjectId(req.params.studentId) } },
+      {
+        $group: {
+          _id: "$course_id",
+          present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } },
+          total: { $sum: 1 },
+          absent: { $sum: { $cond: [{ $eq: ["$status", "absent"] }, 1, 0] } },
+          leave: { $sum: { $cond: [{ $eq: ["$status", "leave"] }, 1, 0] } }
+        }
+      },
+      { $lookup: { from: 'courses', localField: '_id', foreignField: '_id', as: 'course' } },
+      { $unwind: "$course" },
+      {
+        $project: {
+          _id: 0,
+          courseCode: "$course.code",
+          courseName: "$course.name",
+          present: 1,
+          total: 1,
+          absent: 1,
+          leave: 1,
+          percentage: { $round: [{ $multiply: [{ $divide: ["$present", "$total"] }, 100] }, 2] }
+        }
+      }
+    ]);
     res.json({ success: true, data: rows });
   } catch (err) { next(err); }
 });
 
-// GET /api/attendance/today — today's summary for dashboard
-// One aggregate row: how many were marked today and % present.
 router.get("/today", authorize("admin", "faculty"), async (req, res, next) => {
   try {
-    const { rows } = await query(
-      `SELECT COUNT(*)::int AS total,
-              COALESCE(SUM(CASE WHEN status = 'present' THEN 1 ELSE 0 END), 0)::int AS present
-       FROM attendances
-       WHERE date = CURRENT_DATE`
-    );
-    const { total, present } = rows[0];
-    res.json({ success: true, data: { total, present, percentage: total > 0 ? ((present / total) * 100).toFixed(1) : 0 } });
+    const startOfDay = new Date();
+    startOfDay.setUTCHours(0,0,0,0);
+    const endOfDay = new Date();
+    endOfDay.setUTCHours(23,59,59,999);
+
+    const summary = await Attendance.aggregate([
+      { $match: { date: { $gte: startOfDay, $lte: endOfDay } } },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: 1 },
+          present: { $sum: { $cond: [{ $eq: ["$status", "present"] }, 1, 0] } }
+        }
+      }
+    ]);
+
+    const total = summary.length > 0 ? summary[0].total : 0;
+    const present = summary.length > 0 ? summary[0].present : 0;
+    
+    res.json({ 
+      success: true, 
+      data: { 
+        total, 
+        present, 
+        percentage: total > 0 ? ((present / total) * 100).toFixed(1) : 0 
+      } 
+    });
   } catch (err) { next(err); }
 });
 

@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // StudentsPage.jsx
 // Students directory: a searchable, filterable, paginated
 // table of every student with an Excel export button and a
@@ -163,7 +163,7 @@ export const StudentsPage = () => {
           className="px-3 py-2.5 bg-surface-container-low border border-outline-variant/40 rounded-xl text-xs text-on-surface font-medium focus:outline-none focus:ring-2 focus:ring-primary"
         >
           <option value="">All Semesters</option>
-          {[1,2,3,4,5,6,7,8].map((s) => (
+          {[1,2,3,4,5,6].map((s) => (
             <option key={s} value={s}>Semester {s}</option>
           ))}
         </select>

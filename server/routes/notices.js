@@ -1,222 +1,170 @@
-﻿// ============================================================
-// routes/notices.js
-// All REST endpoints for the Notices module (announcement
-// board): list, view, post, edit, pin and delete notices.
-// Every endpoint requires login; posting/editing is limited
-// to admin and faculty.
-// ============================================================
 const express = require("express");
 const router = express.Router();
 const { protect, authorize } = require("../middleware/auth");
 const upload = require("../middleware/upload");
-const { query } = require("../config/db");
+const Notice = require("../models/Notice");
+const User = require("../models/User");
+const Notification = require("../models/Notification");
 
 router.use(protect);
 
-// Shared SQL column list; LEFT JOIN keeps notices whose author was deleted
-const NOTICE_SELECT = `
-  n.id AS "_id", n.title, n.description, n.category,
-  u.id AS "postedById", u.name AS "postedByName", u.role AS "postedByRole",
-  n.target_audience AS "targetAudience", n.department,
-  n.attachment_name AS "attachmentName", n.attachment_path AS "attachmentPath",
-  n.is_pinned AS "isPinned", n.is_published AS "isPublished",
-  n.expires_at AS "expiresAt", n.created_at AS "createdAt", n.updated_at AS "updatedAt"
-`;
+const shapeNotice = (noticeDoc) => {
+  if (!noticeDoc) return null;
+  const doc = noticeDoc.toObject ? noticeDoc.toObject() : noticeDoc;
+  return {
+    _id: doc._id,
+    title: doc.title,
+    description: doc.description,
+    category: doc.category,
+    postedBy: doc.posted_by ? { 
+      _id: doc.posted_by._id, 
+      name: doc.posted_by.name, 
+      role: doc.posted_by.role 
+    } : null,
+    targetAudience: doc.target_audience,
+    department: doc.department,
+    attachment: doc.attachment_name && doc.attachment_path ? { name: doc.attachment_name, path: doc.attachment_path } : null,
+    isPinned: doc.is_pinned,
+    isPublished: doc.is_published,
+    expiresAt: doc.expires_at,
+    createdAt: doc.created_at,
+    updatedAt: doc.updated_at
+  };
+};
 
-const NOTICE_FROM = `FROM notices n LEFT JOIN users u ON u.id = n.posted_by`;
-
-// Turn one flat SQL row into the nested JSON shape the frontend expects
-const shapeNotice = (row) => ({
-  _id: row._id,
-  title: row.title,
-  description: row.description,
-  category: row.category,
-  postedBy: row.postedById ? { _id: row.postedById, name: row.postedByName, role: row.postedByRole } : null,
-  targetAudience: row.targetAudience,
-  department: row.department,
-  attachment: row.attachmentName && row.attachmentPath ? { name: row.attachmentName, path: row.attachmentPath } : null,
-  isPinned: row.isPinned,
-  isPublished: row.isPublished,
-  expiresAt: row.expiresAt,
-  createdAt: row.createdAt,
-  updatedAt: row.updatedAt
-});
-
-// Accept booleans sent as real true OR as the string "true" (from form data)
 const toBool = (v) => v === true || v === "true";
 
-// @route  GET /api/notices
-// Public notice board: only published, non-expired notices,
-// with optional filters + pagination. Pinned ones come first.
 router.get("/", async (req, res, next) => {
   try {
     const { category, targetAudience, search, pinned, page = 1, limit = 20 } = req.query;
-    // Base conditions everyone gets: published AND not expired yet
-    const params = [];
-    const where = ["n.is_published = true", "(n.expires_at IS NULL OR n.expires_at > now())"];
+    
+    const query = {
+      is_published: true,
+      $or: [
+        { expires_at: null },
+        { expires_at: { $gt: new Date() } }
+      ]
+    };
 
-    // Extra filters are appended only when provided
-    if (category) { params.push(category); where.push(`n.category = $${params.length}`); }
-    if (targetAudience) { params.push(targetAudience); where.push(`n.target_audience IN ($${params.length}, 'all')`); } // 'all' notices show for everyone
-    if (pinned === "true") { params.push(true); where.push(`n.is_pinned = $${params.length}`); }
-    if (search) { params.push(`%${search}%`); where.push(`n.title ILIKE $${params.length}`); }
+    if (category) query.category = category;
+    if (targetAudience) query.target_audience = { $in: [targetAudience, 'all'] };
+    if (pinned === "true") query.is_pinned = true;
+    if (search) query.title = { $regex: search, $options: "i" };
 
-    const whereSql = `WHERE ${where.join(" AND ")}`;
+    const total = await Notice.countDocuments(query);
+    const skip = (parseInt(page) - 1) * parseInt(limit);
 
-    // Count first so we can report total pages
-    const countRes = await query(`SELECT COUNT(*)::int AS total FROM notices n ${whereSql}`, params);
-    const total = countRes.rows[0].total;
-
-    // LIMIT/OFFSET placeholders for pagination
-    params.push(parseInt(limit));
-    const limitN = params.length;
-    params.push((parseInt(page) - 1) * parseInt(limit));
-    const offsetN = params.length;
-
-    // Pinned notices jump to the top, then newest first
-    const { rows } = await query(
-      `SELECT ${NOTICE_SELECT} ${NOTICE_FROM} ${whereSql}
-       ORDER BY n.is_pinned DESC, n.created_at DESC
-       LIMIT $${limitN} OFFSET $${offsetN}`,
-      params
-    );
+    const notices = await Notice.find(query)
+      .populate('posted_by', 'name role')
+      .sort({ is_pinned: -1, created_at: -1 })
+      .skip(skip)
+      .limit(parseInt(limit));
 
     res.json({
       success: true,
-      data: rows.map(shapeNotice),
+      data: notices.map(shapeNotice),
       pagination: { total, page: parseInt(page), pages: Math.ceil(total / parseInt(limit)) }
     });
   } catch (err) { next(err); }
 });
 
-// @route  GET /api/notices/:id
-// One notice's full details.
 router.get("/:id", async (req, res, next) => {
   try {
-    const { rows } = await query(
-      `SELECT ${NOTICE_SELECT} ${NOTICE_FROM} WHERE n.id = $1`,
-      [req.params.id]
-    );
-    if (rows.length === 0) return res.status(404).json({ success: false, message: "Notice not found" });
-    res.json({ success: true, data: shapeNotice(rows[0]) });
+    const notice = await Notice.findById(req.params.id).populate('posted_by', 'name role');
+    if (!notice) return res.status(404).json({ success: false, message: "Notice not found" });
+    res.json({ success: true, data: shapeNotice(notice) });
   } catch (err) { next(err); }
 });
 
-// @route  POST /api/notices   Post a new notice (admin/faculty)
-// Also creates in-app notifications for the target audience.
 router.post("/", authorize("admin", "faculty"), upload.single("attachment"), async (req, res, next) => {
   try {
     const { title, description, category, targetAudience, department, isPinned, isPublished, expiresAt } = req.body;
-    // Default expiry: auto-hide after 30 days if no date given
-    const finalExpiresAt = expiresAt || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    
+    const finalExpiresAt = expiresAt ? new Date(expiresAt) : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 
-    const insertRes = await query(
-      `INSERT INTO notices (title, description, category, posted_by, target_audience, department,
-                            attachment_name, attachment_path, is_pinned, is_published, expires_at)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
-       RETURNING id AS "_id", title, description, category, posted_by AS "postedById",
-                 target_audience AS "targetAudience", department,
-                 attachment_name AS "attachmentName", attachment_path AS "attachmentPath",
-                 is_pinned AS "isPinned", is_published AS "isPublished",
-                 expires_at AS "expiresAt", created_at AS "createdAt", updated_at AS "updatedAt"`,
-      [
-        title,
-        description,
-        category || "General",
-        req.user._id, // who posted it
-        targetAudience || "all",
-        department || "all",
-        req.file ? req.file.originalname : null,
-        req.file ? req.file.path.replace(/\\/g, "/") : null,
-        toBool(isPinned),
-        isPublished === undefined ? true : toBool(isPublished),
-        finalExpiresAt
-      ]
-    );
+    const notice = await Notice.create({
+      title,
+      description,
+      category: category || "General",
+      posted_by: req.user._id,
+      target_audience: targetAudience || "all",
+      department: department || "all",
+      attachment_name: req.file ? req.file.originalname : undefined,
+      attachment_path: req.file ? req.file.path.replace(/\\/g, "/") : undefined,
+      is_pinned: toBool(isPinned),
+      is_published: isPublished === undefined ? true : toBool(isPublished),
+      expires_at: finalExpiresAt
+    });
 
-    // Fill in author info from the logged-in user for the response
-    const notice = shapeNotice({ ...insertRes.rows[0], postedByName: req.user.name, postedByRole: req.user.role });
+    const populatedNotice = await Notice.findById(notice._id).populate('posted_by', 'name role');
 
-    // Notify users about the new notice:
-    // targeted -> one INSERT per matching role; otherwise notify every user.
-    // INSERT ... SELECT creates all the rows in a single query.
     const roleFilter = targetAudience === "students" ? "student" : targetAudience === "faculty" ? "faculty" : null;
-    if (roleFilter) {
-      await query(
-        `INSERT INTO notifications (recipient, type, title, message, related_id, related_model)
-         SELECT u.id, 'new_notice', $1, $2, $3, 'Notice' FROM users u WHERE u.role = $4`,
-        ["New Notice Posted", notice.title, notice._id, roleFilter]
-      );
-    } else {
-      await query(
-        `INSERT INTO notifications (recipient, type, title, message, related_id, related_model)
-         SELECT u.id, 'new_notice', $1, $2, $3, 'Notice' FROM users u`,
-        ["New Notice Posted", notice.title, notice._id]
-      );
+    
+    const userQuery = {};
+    if (roleFilter) userQuery.role = roleFilter;
+    
+    const users = await User.find(userQuery).select('_id');
+    
+    if (users.length > 0) {
+      const notifications = users.map(u => ({
+        recipient: u._id,
+        type: 'new_notice',
+        title: "New Notice Posted",
+        message: notice.title,
+        related_id: notice._id,
+        related_model: 'Notice'
+      }));
+      
+      await Notification.insertMany(notifications);
     }
 
-    res.status(201).json({ success: true, message: "Notice posted", data: notice });
+    res.status(201).json({ success: true, message: "Notice posted", data: shapeNotice(populatedNotice) });
   } catch (err) { next(err); }
 });
 
-// @route  PUT /api/notices/:id   Edit an existing notice (admin/faculty)
-// Builds the UPDATE statement dynamically so only sent fields change.
 router.put("/:id", authorize("admin", "faculty"), async (req, res, next) => {
   try {
-    // body field -> DB column
-    const colMap = {
-      title: "title",
-      description: "description",
-      category: "category",
-      targetAudience: "target_audience",
-      department: "department",
-      isPinned: "is_pinned",
-      isPublished: "is_published",
-      expiresAt: "expires_at"
-    };
-    // Boolean columns need string "true"/"false" converted first
-    const boolKeys = new Set(["isPinned", "isPublished"]);
-    const sets = [];
-    const params = [];
-    for (const key of Object.keys(colMap)) {
-      if (req.body[key] !== undefined) {
-        params.push(boolKeys.has(key) ? toBool(req.body[key]) : req.body[key]);
-        sets.push(`${colMap[key]} = $${params.length}`);
-      }
-    }
-    if (sets.length > 0) {
-      params.push(req.params.id);
-      await query(`UPDATE notices SET ${sets.join(", ")} WHERE id = $${params.length}`, params);
-    }
-    const { rows } = await query(`SELECT ${NOTICE_SELECT} ${NOTICE_FROM} WHERE n.id = $1`, [req.params.id]);
-    if (rows.length === 0) return res.status(404).json({ success: false, message: "Notice not found" });
-    res.json({ success: true, data: shapeNotice(rows[0]) });
+    const { title, description, category, targetAudience, department, isPinned, isPublished, expiresAt } = req.body;
+
+    const updateData = {};
+    if (title !== undefined) updateData.title = title;
+    if (description !== undefined) updateData.description = description;
+    if (category !== undefined) updateData.category = category;
+    if (targetAudience !== undefined) updateData.target_audience = targetAudience;
+    if (department !== undefined) updateData.department = department;
+    if (isPinned !== undefined) updateData.is_pinned = toBool(isPinned);
+    if (isPublished !== undefined) updateData.is_published = toBool(isPublished);
+    if (expiresAt !== undefined) updateData.expires_at = expiresAt ? new Date(expiresAt) : null;
+
+    const notice = await Notice.findByIdAndUpdate(req.params.id, { $set: updateData }, { new: true }).populate('posted_by', 'name role');
+    
+    if (!notice) return res.status(404).json({ success: false, message: "Notice not found" });
+    
+    res.json({ success: true, data: shapeNotice(notice) });
   } catch (err) { next(err); }
 });
 
-// @route  PATCH /api/notices/:id/pin   Toggle pin on/off (admin only)
-// "NOT is_pinned" flips true->false / false->true in one statement
 router.patch("/:id/pin", authorize("admin"), async (req, res, next) => {
   try {
-    const pinRes = await query(
-      `UPDATE notices SET is_pinned = NOT is_pinned WHERE id = $1 RETURNING is_pinned AS "isPinned"`,
-      [req.params.id]
-    );
-    if (pinRes.rows.length === 0) return res.status(404).json({ success: false, message: "Notice not found" });
+    const notice = await Notice.findById(req.params.id);
+    if (!notice) return res.status(404).json({ success: false, message: "Notice not found" });
 
-    const { rows } = await query(`SELECT ${NOTICE_SELECT} ${NOTICE_FROM} WHERE n.id = $1`, [req.params.id]);
+    notice.is_pinned = !notice.is_pinned;
+    await notice.save();
+
+    const populatedNotice = await Notice.findById(req.params.id).populate('posted_by', 'name role');
+
     res.json({
       success: true,
-      data: shapeNotice(rows[0]),
-      message: pinRes.rows[0].isPinned ? "Notice pinned" : "Notice unpinned"
+      data: shapeNotice(populatedNotice),
+      message: notice.is_pinned ? "Notice pinned" : "Notice unpinned"
     });
   } catch (err) { next(err); }
 });
 
-// @route  DELETE /api/notices/:id   Delete a notice (admin only)
 router.delete("/:id", authorize("admin"), async (req, res, next) => {
   try {
-    await query("DELETE FROM notices WHERE id = $1", [req.params.id]);
+    await Notice.findByIdAndDelete(req.params.id);
     res.json({ success: true, message: "Notice deleted" });
   } catch (err) { next(err); }
 });
